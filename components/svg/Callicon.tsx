@@ -1,0 +1,36 @@
+import * as React from "react";
+import { SVGProps } from "react";
+const Callicon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 25 27"
+    fill="none"
+    {...props}
+  >
+    <path
+      stroke="#fff"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeMiterlimit={10}
+      strokeWidth={1.5}
+      d="M25.845 23.476c.222.6.222 1.203-.111 1.683-.331.48-.774.84-1.439.84H2.705c-.554 0-1.108-.36-1.439-.84-.333-.48-.333-1.202-.111-1.683l2.325-5.532h19.93l2.435 5.532Z"
+    />
+    <path
+      stroke="#fff"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeMiterlimit={10}
+      strokeWidth={1.5}
+      d="M11.833 22.447h3.334m8.246-4.503V2.777c0-.948-.776-1.777-1.661-1.777H5.145c-.886 0-1.661.83-1.661 1.777v15.167h19.929Z"
+    />
+    <path
+      stroke="#fff"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeMiterlimit={10}
+      strokeWidth={1.5}
+      d="M17.5 14.39c-1-1.186-2.444-2.015-4-2.015s-3 .71-4 2.014m4-2.607c.438 0 .871-.091 1.276-.27.404-.179.771-.44 1.08-.77.31-.33.556-.723.723-1.154a3.76 3.76 0 0 0 0-2.72 3.578 3.578 0 0 0-.722-1.154 3.327 3.327 0 0 0-1.081-.77 3.154 3.154 0 0 0-1.276-.27c-.884 0-1.732.374-2.357 1.04a3.678 3.678 0 0 0-.976 2.514c0 .943.351 1.847.976 2.513a3.231 3.231 0 0 0 2.357 1.041Z"
+    />
+  </svg>
+);
+export default Callicon;

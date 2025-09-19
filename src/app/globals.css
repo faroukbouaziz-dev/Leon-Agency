@@ -3,26 +3,121 @@
 :root {
   --background: #f7f7f7;
   --foreground: #222222;
+  --primary: #10c9b7;
+  --secondary: #2c4755;
+  --sublabel: #777777;
+  --heading-light: #e0e0e0;
+  --heading-dark: #1c1c1c;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-manrope: var(--font-manrope);
 }
 
 @theme {
   --font-knockbold: var(--font-knockbold);
+  --breakpoint-xs: 31.25rem;
+  --breakpoint-hxl: 68.75rem;
+  --breakpoint-h2xl: 87.5rem;
 }
 
-/* @media (prefers-color-scheme: dark) {
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  ::selection {
+    background-color: #51cbbf;
+    color: var(--heading-dark);
+  }
+  button,
+  a {
+    cursor: pointer;
+  }
+}
+
+@layer utilities {
+  /* svg */
+  .fill-primary {
+    fill: var(--primary);
+  }
+  .fill-secondary {
+    fill: var(--secondary);
+  }
+  .fill-bg-color {
+    fill: var(--background);
+  }
+
+  /* colors & backgrounds */
+  .glass-bg {
+    background: hsla(0, 0%, 100%, 0.15);
+    box-shadow:
+      inset 0px 0px 3px 1px #fff,
+      0px 0px 5px 1px hsla(0, 0%, 0%, 0.071);
+    backdrop-filter: blur(2px);
+  }
+  .text-primary,
+  .active {
+    color: var(--primary);
+  }
+
+  /* placement & spacing */
+  .parent-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .costume-container {
+    max-width: 1920;
+    margin-inline: auto;
+  }
+
+  /* font & text */
+  .heading1 {
+    font-size: clamp(70px, 16vw, 250px);
+  }
+  .text-small {
+    @apply text-base leading-5 md:text-xl md:leading-6 2xl:text-2xl 2xl:leading-7;
+  }
+  .numbers {
+    @apply xs:text-[4rem] text-4xl leading-none md:text-[4.5rem];
+  }
+  .label {
+    @apply text-base leading-none md:text-lg 2xl:text-xl;
+  }
+  .sublabel {
+    @apply text-sm leading-none text-[var(--sublabel)] md:text-[0.9375rem] 2xl:text-base;
+  }
+  .link {
+    @apply text-sm font-semibold xl:text-base;
+  }
+}
+
+@layer components {
+  .header {
+    @apply fixed right-[10px] left-[10px] z-50 my-2.5 flex items-center justify-between rounded-4xl px-4 py-2 md:!bg-transparent md:!shadow-none md:!backdrop-blur-none;
+  }
+  .link-box {
+    @apply block px-2.5 py-2.5;
+  }
+  .btn-primary {
+    background-color: var(--primary);
+    @apply rounded-3xl px-5 py-2.5 font-bold text-nowrap text-white;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --secondary: #466271;
   }
-} */
+}
 
 body {
   background: var(--background);
+  background-size: contain;
   color: var(--foreground);
+  font-family: var(--font-manrope);
 }

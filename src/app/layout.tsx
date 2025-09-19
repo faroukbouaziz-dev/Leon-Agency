@@ -26,7 +26,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${manrope.variable} ${knockbold.variable} antialiased`}>
+      <body
+        className={`h-[5000px] ${manrope.variable} ${knockbold.variable} antialiased`}
+      >
         {children}
       </body>
     </html>
