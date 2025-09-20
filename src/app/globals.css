@@ -3,6 +3,7 @@
 :root {
   --background: #f7f7f7;
   --foreground: #222222;
+  --background-transparent: #f7f7f74a;
   --primary: #10c9b7;
   --secondary: #2c4755;
   --sublabel: #777777;
@@ -68,9 +69,8 @@
     left: 50%;
     transform: translate(-50%, -50%);
   }
-  .costume-container {
-    max-width: 1920;
-    margin-inline: auto;
+  .section {
+    @apply mx-auto max-w-[120rem];
   }
 
   /* font & text */
@@ -79,6 +79,9 @@
   }
   .text-small {
     @apply text-base leading-5 md:text-xl md:leading-6 2xl:text-2xl 2xl:leading-7;
+  }
+  .text-big {
+    @apply text-xl md:text-2xl xl:text-[2rem];
   }
   .numbers {
     @apply xs:text-[4rem] text-4xl leading-none md:text-[4.5rem];
@@ -91,6 +94,19 @@
   }
   .link {
     @apply text-sm font-semibold xl:text-base;
+  }
+  .brand {
+    fill: var(--secondary);
+    @apply max-h-6 shrink-0 lg:max-h-8;
+  }
+  .linear-bg {
+    background-image: linear-gradient(
+      to right,
+      var(--background),
+      var(--background),
+      var(--background-transparent),
+      #ffffff00
+    );
   }
 }
 
@@ -111,6 +127,7 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --background-transparent: #0a0a0a3d;
     --secondary: #466271;
   }
 }

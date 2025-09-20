@@ -5,7 +5,7 @@ import Callicon from "./svg/Callicon";
 
 const Header = () => {
   return (
-    <header className="header glass-bg costume-container">
+    <header className="header glass-bg section">
       <Logo className="fill-primary w-8 md:w-14" />
 
       <nav className="glass-bg absolute left-1/2 hidden -translate-x-1/2 rounded-4xl px-3 py-[0.3rem] md:block">

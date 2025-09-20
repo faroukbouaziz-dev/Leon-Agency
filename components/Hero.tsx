@@ -1,4 +1,3 @@
-import { FiMoon } from "react-icons/fi";
 import LeftFang from "./svg/hero/LeftFang";
 import Lion from "./svg/hero/Lion";
 import MouseDown from "./svg/hero/MouseDown";
@@ -7,8 +6,8 @@ import Callicon from "./svg/Callicon";
 
 const Hero = () => {
   return (
-    <section className="xs:px-4 costume-container flex h-svh items-end justify-between px-2.5 pb-2 xl:px-5">
-      <div className="parent-center !w-[60%] max-w-[546px] min-w-[242px]">
+    <section className="xs:px-4 section flex h-svh items-end justify-between px-2.5 pb-2 xl:px-5">
+      <div className="parent-center !w-[60%] max-w-[546px] min-w-[242px] [@media(max-height:520px)]:!top-[40%]">
         <div className="relative">
           <Lion className="fill-secondary h-auto w-full" />
           <RightFang className="fill-bg-color absolute top-[39%] left-[38%] z-10 w-[20%]" />
