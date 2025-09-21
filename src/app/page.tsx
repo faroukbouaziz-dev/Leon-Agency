@@ -1,13 +1,15 @@
 import Hero from "../../components/Hero";
 import Header from "../../components/Header";
-import Logos from "../../components/Logos";
+import Partners from "../../components/Partners";
+import About from "../../components/About";
 
 export default function Home() {
   return (
     <>
       <Header />
       <Hero />
-      <Logos />
+      <Partners />
+      <About />
     </>
   );
 }

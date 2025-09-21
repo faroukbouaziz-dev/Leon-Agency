@@ -1,12 +1,18 @@
-import Logo from "./svg/Logo";
 import { FiMoon } from "react-icons/fi";
 import { IoMenu } from "react-icons/io5";
-import Callicon from "./svg/Callicon";
+import Callicon from "@/assets/svg/Icons/Callicon.svg";
+import Image from "next/image";
 
 const Header = () => {
   return (
     <header className="header glass-bg section">
-      <Logo className="fill-primary w-8 md:w-14" />
+      <Image
+        src="/icon.svg"
+        alt="Logo"
+        width={32}
+        height={32}
+        className="fill-primary md:w-14"
+      />
 
       <nav className="glass-bg absolute left-1/2 hidden -translate-x-1/2 rounded-4xl px-3 py-[0.3rem] md:block">
         <ul className="flex uppercase">

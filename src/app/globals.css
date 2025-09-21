@@ -62,6 +62,16 @@
     color: var(--primary);
   }
 
+  .linear-bg {
+    background-image: linear-gradient(
+      to right,
+      var(--background),
+      var(--background),
+      var(--background-transparent),
+      #ffffff00
+    );
+  }
+
   /* placement & spacing */
   .parent-center {
     position: absolute;
@@ -72,10 +82,21 @@
   .section {
     @apply mx-auto max-w-[120rem];
   }
+  .section-m {
+    @apply mt-[4.6875rem];
+  }
+  .section-p {
+    @apply xs:px-4 px-2.5 xl:px-5;
+  }
 
   /* font & text */
   .heading1 {
+    font-family: var(--font-knockbold);
     font-size: clamp(70px, 16vw, 250px);
+  }
+  .heading2 {
+    font-family: var(--font-knockbold);
+    font-size: clamp(60px, 13vw, 200px);
   }
   .text-small {
     @apply text-base leading-5 md:text-xl md:leading-6 2xl:text-2xl 2xl:leading-7;
@@ -95,19 +116,6 @@
   .link {
     @apply text-sm font-semibold xl:text-base;
   }
-  .brand {
-    fill: var(--secondary);
-    @apply max-h-6 shrink-0 lg:max-h-8;
-  }
-  .linear-bg {
-    background-image: linear-gradient(
-      to right,
-      var(--background),
-      var(--background),
-      var(--background-transparent),
-      #ffffff00
-    );
-  }
 }
 
 @layer components {
@@ -120,6 +128,10 @@
   .btn-primary {
     background-color: var(--primary);
     @apply rounded-3xl px-5 py-2.5 font-bold text-nowrap text-white;
+  }
+  .brand {
+    fill: var(--secondary);
+    @apply max-h-6 shrink-0 lg:max-h-8;
   }
 }
 
