@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f7f7f7;
-  --foreground: #222222;
-  --background-transparent: #f7f7f74a;
-  --primary: #10c9b7;
-  --secondary: #2c4755;
-  --sublabel: #777777;
-  --heading-light: #e0e0e0;
-  --heading-dark: #1c1c1c;
+  --background: hsl(0, 0%, 97%);
+  --foreground: hsl(0, 0%, 13%);
+  --background-transparent: hsla(0, 0%, 97%, 0.29);
+  --primary: hsl(174, 85%, 43%);
+  --secondary: hsl(200, 32%, 25%);
+  --sublabel: hsl(0, 0%, 47%);
+  --heading-light: hsl(0, 0%, 88%);
+  --heading-dark: hsl(0, 0%, 11%);
 }
 
 @theme inline {
@@ -18,6 +18,7 @@
 
 @theme {
   --font-knockbold: var(--font-knockbold);
+  --breakpoint-2xs: 25rem;
   --breakpoint-xs: 31.25rem;
   --breakpoint-hxl: 68.75rem;
   --breakpoint-h2xl: 87.5rem;
@@ -27,8 +28,18 @@
   html {
     scroll-behavior: smooth;
   }
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--background);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 16px;
+  }
   ::selection {
-    background-color: #51cbbf;
+    background-color: var(--primary);
     color: var(--heading-dark);
   }
   button,
@@ -83,7 +94,7 @@
     @apply mx-auto max-w-[120rem];
   }
   .section-m {
-    @apply mt-[4.6875rem];
+    @apply mt-[4.6875rem] md:mt-[6rem] lg:mt-[7rem] xl:mt-[8rem] 2xl:mt-[9.375rem];
   }
   .section-p {
     @apply xs:px-4 px-2.5 xl:px-5;
@@ -92,11 +103,18 @@
   /* font & text */
   .heading1 {
     font-family: var(--font-knockbold);
-    font-size: clamp(70px, 16vw, 250px);
+    font-size: clamp(4.375rem, 16vw, 15.625rem);
+    @apply uppercase;
   }
   .heading2 {
     font-family: var(--font-knockbold);
-    font-size: clamp(60px, 13vw, 200px);
+    font-size: clamp(3.75rem, 13vw, 12.5rem);
+    @apply mb-12 leading-none uppercase md:mb-[4.375rem] lg:mb-[6.25rem] 2xl:mb-[7.5rem];
+  }
+  .heading3 {
+    font-family: var(--font-manrope);
+    font-size: clamp(1.4375rem, 6vw, 2.5rem);
+    @apply leading-none text-nowrap capitalize;
   }
   .text-small {
     @apply text-base leading-5 md:text-xl md:leading-6 2xl:text-2xl 2xl:leading-7;
