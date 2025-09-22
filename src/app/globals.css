@@ -77,6 +77,15 @@
     background-image: linear-gradient(
       to right,
       var(--background),
+      var(--background-transparent),
+      #ffffff00
+    );
+  }
+
+  .linear-bg2 {
+    background-image: linear-gradient(
+      to right,
+      var(--background),
       var(--background),
       var(--background-transparent),
       #ffffff00
@@ -147,9 +156,15 @@
     background-color: var(--primary);
     @apply rounded-3xl px-5 py-2.5 font-bold text-nowrap text-white;
   }
+  .btn-secondary {
+    @apply flex gap-1.5 rounded-3xl px-5 py-2.5;
+  }
   .brand {
     fill: var(--secondary);
     @apply max-h-6 shrink-0 lg:max-h-8;
+  }
+  .portfolio-img {
+    @apply xs:h-48 h-33 w-9/12 rounded-xl sm:h-65 md:h-52 md:w-1/2 lg:h-auto;
   }
 }
 
