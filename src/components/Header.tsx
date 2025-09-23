@@ -17,32 +17,32 @@ const Header = () => {
       <nav className="glass-bg absolute left-1/2 hidden -translate-x-1/2 rounded-4xl px-3 py-[0.3rem] md:block">
         <ul className="flex uppercase">
           <li>
-            <a href="/" className="link link-box active">
+            <a href="/" className="link active">
               Home
             </a>
           </li>
           <li>
-            <a href="" className="link link-box">
+            <a href="" className="link">
               About
             </a>
           </li>
           <li>
-            <a href="" className="link link-box">
+            <a href="" className="link">
               Services
             </a>
           </li>
           <li>
-            <a href="" className="link link-box">
+            <a href="" className="link">
               Portfolio
             </a>
           </li>
           <li>
-            <a href="" className="link link-box">
+            <a href="" className="link">
               Testimonials
             </a>
           </li>
           <li>
-            <a href="" className="link link-box">
+            <a href="" className="link">
               Contact
             </a>
           </li>

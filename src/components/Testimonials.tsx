@@ -6,7 +6,7 @@ const Testimonials = () => {
   const currentClients = testimonialsData.slice(0, 3);
 
   return (
-    <section className="section section-m section-p">
+    <section className="section">
       <h2 className="heading2">Testimonials</h2>
       <div className="flex flex-col gap-5 md:flex-row md:justify-around md:px-[7%]">
         <div className="relative">
@@ -16,7 +16,7 @@ const Testimonials = () => {
                 key={client.id}
                 className={
                   "flex w-fit items-center gap-2 md:gap-3" +
-                  (client.id === 2 ? " active-client" : "")
+                  (client.id === 2 ? " pl-20 lg:pl-39" : "")
                 }
               >
                 <Image
@@ -25,8 +25,21 @@ const Testimonials = () => {
                   className="h-15 w-15 rounded-full lg:h-20 lg:w-20"
                 />
                 <div>
-                  <p className="label mb-1 text-left lg:mb-2">{client.name} </p>
-                  <p className="sublabel">{client.job} </p>
+                  <p
+                    className={
+                      "label mb-1 text-left lg:mb-2" +
+                      (client.id === 2 ? " label-active" : "")
+                    }
+                  >
+                    {client.name}{" "}
+                  </p>
+                  <p
+                    className={
+                      "sublabel" + (client.id === 2 ? " sublabel-active" : "")
+                    }
+                  >
+                    {client.job}{" "}
+                  </p>
                 </div>
               </button>
             ))}

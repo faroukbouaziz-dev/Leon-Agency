@@ -13,7 +13,7 @@ interface Service {
 
 const ServicesCard = ({ service }: { service: Service }) => {
   return (
-    <div className="border-sublabel xs:py-7 border-b-2 py-5 md:py-10 lg:py-12">
+    <div className="xs:py-7 card-spacing border-b-2">
       <div className="xs:mb-10 mb-5 flex items-center justify-between">
         <div className="flex items-center gap-1.5 lg:gap-3">
           <span className="numbers">{service.id}</span>

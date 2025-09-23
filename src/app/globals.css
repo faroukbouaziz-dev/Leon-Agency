@@ -72,7 +72,6 @@
   .active {
     color: var(--primary);
   }
-
   .linear-bg {
     background-image: linear-gradient(
       to right,
@@ -81,7 +80,6 @@
       #ffffff00
     );
   }
-
   .linear-bg2 {
     background-image: linear-gradient(
       to right,
@@ -99,14 +97,11 @@
     left: 50%;
     transform: translate(-50%, -50%);
   }
-  .section {
-    @apply mx-auto max-w-[120rem];
+  .card-spacing {
+    @apply py-5 md:py-10 lg:py-12;
   }
-  .section-m {
-    @apply mt-[4.6875rem] md:mt-[6rem] lg:mt-[7rem] xl:mt-[8rem] 2xl:mt-[9.375rem];
-  }
-  .section-p {
-    @apply xs:px-4 px-2.5 xl:px-5;
+  .card-spacing-variant {
+    @apply py-5 md:py-7 lg:py-10;
   }
 
   /* font & text */
@@ -137,27 +132,33 @@
   .label {
     @apply text-base leading-none text-nowrap md:text-lg 2xl:text-xl;
   }
+  .label-active {
+    @apply !text-lg !leading-none !text-nowrap md:!text-xl lg:!text-2xl;
+  }
   .sublabel {
     @apply text-sm leading-none text-nowrap text-[var(--sublabel)] md:text-[0.9375rem] 2xl:text-base;
   }
-  .link {
-    @apply text-sm font-semibold xl:text-base;
+  .sublabel-active {
+    @apply !text-base !leading-none !text-nowrap !text-[var(--sublabel)] lg:!text-lg;
   }
-  .active-client {
-    @apply pl-20 lg:pl-39;
+  .link {
+    @apply block px-2.5 py-2.5 text-sm font-semibold xl:text-base;
+  }
+  .arbitrary-heading3 {
+    @apply [@media(min-width:768px)_and_(max-width:1023px)]:!text-2xl;
   }
 }
 
 @layer components {
-  .header {
-    @apply fixed right-[10px] left-[10px] z-50 my-2.5 flex items-center justify-between rounded-4xl px-4 py-2 md:!bg-transparent md:!shadow-none md:!backdrop-blur-none;
+  .section {
+    @apply xs:px-4 mx-auto mt-[4.6875rem] max-w-[120rem] px-2.5 md:mt-[6rem] lg:mt-[7rem] xl:mt-[8rem] xl:px-5 2xl:mt-[9.375rem];
   }
-  .link-box {
-    @apply block px-2.5 py-2.5;
+  .header {
+    @apply fixed top-0 right-[10px] left-[10px] z-50 !my-2.5 flex items-center justify-between rounded-4xl px-4 py-2 md:!bg-transparent md:!shadow-none md:!backdrop-blur-none;
   }
   .btn-primary {
     background-color: var(--primary);
-    @apply rounded-3xl px-5 py-2.5 font-bold text-nowrap text-white;
+    @apply flex gap-2 rounded-3xl px-5 py-2.5 font-bold text-nowrap text-white;
   }
   .btn-secondary {
     @apply flex gap-1.5 rounded-3xl px-5 py-2.5;
@@ -171,6 +172,9 @@
   }
   .half-circel {
     @apply absolute top-3 left-2 -z-10 h-50 w-27 rounded-r-full border-3 border-l-0 lg:top-7 lg:h-81 lg:w-50;
+  }
+  .input {
+    @apply block h-12 w-full border-b-2 border-white px-2;
   }
 }
 

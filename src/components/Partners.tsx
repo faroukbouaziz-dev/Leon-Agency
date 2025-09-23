@@ -2,7 +2,7 @@ import * as Brands from "@/assets/svg/Partners";
 
 const Logos = () => {
   return (
-    <section className="section section-m">
+    <section className="section !px-0">
       <h2 className="text-big mb-5 text-center">
         Trusted by world's top brands
       </h2>

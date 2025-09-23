@@ -2,7 +2,7 @@ import AboutArrow from "@/assets/svg/AboutArrow.svg";
 
 const About = () => {
   return (
-    <section className="section section-m section-p">
+    <section className="section">
       <h2 className="heading2">Our Story</h2>
       <div className="relative">
         <AboutArrow className="h-[380px] w-full sm:h-[450px] lg:h-[500px] xl:h-[550px] 2xl:h-[580px]" />

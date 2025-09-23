@@ -8,7 +8,7 @@ import App3 from "@/assets/portfolio/apps/3.jpg";
 
 const Portfolio = () => {
   return (
-    <section className="section section-m section-p">
+    <section className="section">
       <h2 className="heading2">Our work</h2>
       <div className="mx-auto mb-8 flex w-fit flex-wrap items-center justify-center gap-3 lg:mb-14 xl:gap-5">
         <button className="btn-secondary glass-bg">
