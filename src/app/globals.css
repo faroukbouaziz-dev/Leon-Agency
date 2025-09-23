@@ -135,13 +135,16 @@
     @apply xs:text-[4rem] text-4xl leading-none md:text-[4.5rem];
   }
   .label {
-    @apply text-base leading-none md:text-lg 2xl:text-xl;
+    @apply text-base leading-none text-nowrap md:text-lg 2xl:text-xl;
   }
   .sublabel {
-    @apply text-sm leading-none text-[var(--sublabel)] md:text-[0.9375rem] 2xl:text-base;
+    @apply text-sm leading-none text-nowrap text-[var(--sublabel)] md:text-[0.9375rem] 2xl:text-base;
   }
   .link {
     @apply text-sm font-semibold xl:text-base;
+  }
+  .active-client {
+    @apply pl-20 lg:pl-39;
   }
 }
 
@@ -165,6 +168,9 @@
   }
   .portfolio-img {
     @apply xs:h-48 h-33 w-9/12 rounded-xl sm:h-65 md:h-52 md:w-1/2 lg:h-auto;
+  }
+  .half-circel {
+    @apply absolute top-3 left-2 -z-10 h-50 w-27 rounded-r-full border-3 border-l-0 lg:top-7 lg:h-81 lg:w-50;
   }
 }
 
