@@ -17,7 +17,7 @@ const Header = () => {
       <nav className="glass-bg absolute left-1/2 hidden -translate-x-1/2 rounded-4xl px-3 py-[0.3rem] md:block">
         <ul className="flex uppercase">
           <li>
-            <a href="/" className="link active">
+            <a href="" className="link active">
               Home
             </a>
           </li>

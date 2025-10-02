@@ -32,7 +32,7 @@
     width: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: var(--background);
+    background: transparent;
   }
   ::-webkit-scrollbar-thumb {
     background: var(--primary);
@@ -174,7 +174,10 @@
     @apply absolute top-3 left-2 -z-10 h-50 w-27 rounded-r-full border-3 border-l-0 lg:top-7 lg:h-81 lg:w-50;
   }
   .input {
-    @apply block h-12 w-full border-b-2 border-white px-2;
+    @apply block h-12 w-full border-b-2 border-white px-2 focus:outline-0;
+  }
+  .footer-contact {
+    @apply mb-4 flex flex-col items-center lg:mb-4 lg:!flex-row lg:gap-2;
   }
 }
 
