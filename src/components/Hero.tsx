@@ -7,13 +7,13 @@ import Callicon from "@/assets/svg/Icons/Callicon.svg";
 const Hero = () => {
   return (
     <section className="section flex h-svh items-end justify-between pb-2">
-      <div className="parent-center !w-[60%] max-w-[546px] min-w-[242px] [@media(max-height:520px)]:!top-[40%]">
+      <div className="parent-center w-[60%] max-w-[500px] min-w-[242px] [@media(max-height:520px)]:!top-[40%]">
         <div className="relative">
-          <Lion className="fill-secondary h-auto w-full" />
+          <Lion className="fill-secondary w-ful h-auto" />
           <RightFang className="fill-bg-color absolute top-[39%] left-[38%] z-10 w-[20%]" />
           <LeftFang className="fill-bg-color absolute top-[39%] left-[58.2%] z-10 w-[20%]" />
 
-          <h1 className="text-primary heading1 parent-center hxl:!top-[56%] h2xl:!top-[58.5%] 2xl:!top-[59%]\ !top-[52.5%] text-nowrap uppercase [word-spacing:-10px] md:!top-[53%] lg:!top-[54%] xl:!top-[57%]">
+          <h1 className="text-primary heading1 parent-center hxl:!top-[56%] h2xl:!top-[60%] !top-[52.5%] text-nowrap uppercase [word-spacing:-10px] md:!top-[53%] lg:!top-[54%] xl:!top-[57%]">
             Leon Agency
           </h1>
           <button className="btn-primary parent-center absolute !top-[70%] flex items-center gap-1 sm:!top-[65%] lg:!top-[70%] xl:hidden">
