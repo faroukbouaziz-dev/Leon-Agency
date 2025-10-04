@@ -1,14 +1,33 @@
 @import "tailwindcss";
 
-:root {
-  --background: hsl(0, 0%, 97%);
-  --foreground: hsl(0, 0%, 13%);
-  --background-transparent: hsla(0, 0%, 97%, 0.29);
-  --primary: hsl(174, 85%, 43%);
-  --secondary: hsl(200, 32%, 25%);
-  --sublabel: hsl(0, 0%, 47%);
-  --heading-light: hsl(0, 0%, 88%);
-  --heading-dark: hsl(0, 0%, 11%);
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root,
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --background-transparent: #0a0a0a3d;
+  --primary: #10cbb8;
+  --secondary: #466271;
+  --sublabel: #787878;
+  --heading-light: #e0e0e0;
+  --heading-dark: #1c1c1c;
+}
+
+html.light {
+  --background: #f7f7f7;
+  --foreground: #212121;
+  --background-transparent: #f7f7f74a;
+  --secondary: #2b4754;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #f7f7f7;
+    --foreground: #212121;
+    --background-transparent: #f7f7f74a;
+    --secondary: #2b4754;
+  }
 }
 
 @theme inline {
@@ -178,15 +197,6 @@
   }
   .footer-contact {
     @apply mb-4 flex flex-col items-center lg:mb-4 lg:!flex-row lg:gap-2;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    --background-transparent: #0a0a0a3d;
-    --secondary: #466271;
   }
 }
 
