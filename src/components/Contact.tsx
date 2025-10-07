@@ -6,7 +6,7 @@ import { IoLocationOutline } from "react-icons/io5";
 import { MdOutlineEmail } from "react-icons/md";
 const Contact = () => {
   return (
-    <section className="section">
+    <section className="section" id="contact">
       <h2 className="heading2">Let&apos;s talk</h2>
       <div className="xs:gap-25 flex flex-col items-center justify-around gap-15 md:flex-row md:gap-0">
         <div className="w-full max-w-lg md:w-[40%]">

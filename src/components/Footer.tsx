@@ -8,7 +8,7 @@ import { MdOutlineEmail } from "react-icons/md";
 
 const Footer = () => {
   return (
-    <footer className="section relative overflow-hidden bg-[var(--secondary)] pt-4 !text-[var(--background)]">
+    <footer className="relative overflow-hidden bg-[var(--secondary)] p-4 pt-4 !text-[var(--background)]">
       <div className="items-start gap-10 md:flex xl:!gap-40">
         <form className="py-4 lg:w-120">
           <label htmlFor="newsletter">

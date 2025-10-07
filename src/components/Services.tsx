@@ -3,7 +3,7 @@ import ServicesCard from "./ServicesCard";
 
 const Services = () => {
   return (
-    <section className="section">
+    <section className="section" id="services">
       <h2 className="heading2">Capabilities</h2>
       {servicesData.map((service) => (
         <ServicesCard key={service.id} service={service} />

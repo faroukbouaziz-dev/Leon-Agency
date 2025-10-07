@@ -6,7 +6,10 @@ import Callicon from "@/assets/svg/Icons/Callicon.svg";
 
 const Hero = () => {
   return (
-    <section className="section mt-0 flex h-svh items-end justify-between pb-2">
+    <section
+      className="section mt-0 flex h-svh items-end justify-between pb-2"
+      id="home"
+    >
       <div className="parent-center w-[60%] max-w-[500px] min-w-[242px] [@media(max-height:520px)]:!top-[40%]">
         <div className="relative">
           <Lion className="fill-secondary w-ful h-auto" />

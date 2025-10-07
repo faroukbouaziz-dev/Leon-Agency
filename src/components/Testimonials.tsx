@@ -6,7 +6,7 @@ const Testimonials = () => {
   const currentClients = testimonialsData.slice(0, 3);
 
   return (
-    <section className="section">
+    <section className="section" id="testimonials">
       <h2 className="heading2">Testimonials</h2>
       <div className="flex flex-col gap-5 md:flex-row md:justify-around md:px-[7%]">
         <div className="relative">
