@@ -2,7 +2,7 @@ import LeftFang from "@/assets/svg/hero/LeftFang.svg";
 import Lion from "@/assets/svg/hero/Lion.svg";
 import RightFang from "@/assets/svg/hero/RightFang.svg";
 import Mouse from "@/assets/svg/Hero/Mouse.svg";
-import Callicon from "@/assets/svg/Icons/Callicon.svg";
+import CallBtn from "./CallBtn";
 
 const Hero = () => {
   return (
@@ -19,10 +19,7 @@ const Hero = () => {
           <h1 className="text-primary heading1 parent-center hxl:!top-[56%] h2xl:!top-[60%] !top-[52.5%] text-nowrap uppercase [word-spacing:-10px] md:!top-[53%] lg:!top-[54%] xl:!top-[57%]">
             Leon Agency
           </h1>
-          <button className="btn-primary parent-center absolute !top-[70%] flex items-center gap-1 sm:!top-[65%] lg:!top-[70%] xl:hidden">
-            <Callicon className="h-6 w-6" />
-            <span>Book a call</span>
-          </button>
+          <CallBtn className="parent-center absolute !top-[70%] flex items-center gap-1 sm:!top-[65%] lg:!top-[70%] xl:hidden" />
         </div>
       </div>
       <div className="xs:max-w-[200px] flex max-w-[165px] flex-col gap-3 md:max-w-[290px]">

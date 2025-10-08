@@ -2,9 +2,9 @@
 
 import { FiMoon, FiSun } from "react-icons/fi";
 import { IoClose, IoMenu } from "react-icons/io5";
-import Callicon from "@/assets/svg/Icons/Callicon.svg";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import CallBtn from "./CallBtn";
 
 const Header = () => {
   const [lightTheme, setLightTheme] = useState<boolean | null>(null);
@@ -118,10 +118,7 @@ const Header = () => {
           >
             <IoMenu size={24} />
           </div>
-          <button className="btn-primary hidden items-center gap-1 xl:flex">
-            <Callicon className="h-6 w-6" />
-            <span>Book a call</span>
-          </button>
+          <CallBtn className="hidden items-center gap-1 xl:flex" />
         </div>
       </header>
       <div

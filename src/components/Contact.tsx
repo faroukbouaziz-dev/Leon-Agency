@@ -1,9 +1,10 @@
-import Callicon from "@/assets/svg/Icons/Callicon.svg";
 import { FaDribbble, FaLinkedinIn } from "react-icons/fa";
 import { FaUpwork, FaXTwitter } from "react-icons/fa6";
 import { FiSend, FiSmartphone } from "react-icons/fi";
 import { IoLocationOutline } from "react-icons/io5";
 import { MdOutlineEmail } from "react-icons/md";
+import CallBtn from "./CallBtn";
+
 const Contact = () => {
   return (
     <section className="section" id="contact">
@@ -12,10 +13,7 @@ const Contact = () => {
         <div className="w-full max-w-lg md:w-[40%]">
           <div className="card-spacing-variant flex items-center justify-between border-b-2 !pt-0">
             <h3 className="heading3 arbitrary-heading3">Live Meeting</h3>
-            <button className="btn-primary flex items-center gap-1">
-              <Callicon className="h-6 w-6" />
-              <span>Book a call</span>
-            </button>
+            <CallBtn className="flex items-center gap-1" />
           </div>
           <div className="card-spacing-variant border-b-2">
             <h3 className="heading3 arbitrary-heading3 mb-3 lg:mb-6">
