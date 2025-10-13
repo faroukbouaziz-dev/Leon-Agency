@@ -1,7 +1,7 @@
 "use client";
 
 import { FiMoon, FiSun } from "react-icons/fi";
-import { IoClose, IoMenu } from "react-icons/io5";
+import { IoCloseOutline, IoMenu } from "react-icons/io5";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import CallBtn from "./CallBtn";
@@ -21,32 +21,30 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
-    setTimeout(() => {
-      const headerLinks = document.querySelectorAll(".headerLink");
-      const secObserver = new IntersectionObserver((sections) => {
-        sections.forEach((sec) => {
-          if (sec.isIntersecting) {
-            headerLinks.forEach((link) => {
-              if (sec.target.id !== link.textContent.toLocaleLowerCase()) {
-                link.classList.remove("active");
-              } else {
-                link.classList.add("active");
-                window.history.replaceState(null, "", `#${link.textContent}`);
-              }
-            });
-          }
-        });
-      });
-
-      const sections = document.querySelectorAll(".section");
+    const headerLinks = document.querySelectorAll(".headerLink");
+    const secObserver = new IntersectionObserver((sections) => {
       sections.forEach((sec) => {
-        secObserver.observe(sec!);
+        if (sec.isIntersecting) {
+          headerLinks.forEach((link) => {
+            if (sec.target.id !== link.textContent.toLocaleLowerCase()) {
+              link.classList.remove("active");
+            } else {
+              link.classList.add("active");
+              window.history.replaceState(null, "", `#${link.textContent}`);
+            }
+          });
+        }
       });
+    });
 
-      return () => {
-        sections.forEach((section) => secObserver.unobserve(section));
-      };
-    }, 0);
+    const sections = document.querySelectorAll(".section");
+    sections.forEach((sec) => {
+      secObserver.observe(sec!);
+    });
+
+    return () => {
+      sections.forEach((section) => secObserver.unobserve(section));
+    };
   }, []);
 
   return (
@@ -111,7 +109,7 @@ const Header = () => {
           </button>
           <div
             onClick={() => {
-              setMenuOpened(!menuOpened);
+              setMenuOpened(true);
               document.body.style.overflowY = "hidden";
             }}
             className="md:hidden"
@@ -129,11 +127,11 @@ const Header = () => {
         <button
           className="absolute top-3 right-5"
           onClick={() => {
-            setMenuOpened(!menuOpened);
+            setMenuOpened(false);
             document.body.style.overflowY = "scroll";
           }}
         >
-          <IoClose size={32} />
+          <IoCloseOutline size={32} />
         </button>
         <ul className="flex flex-col items-center gap-4">
           {[

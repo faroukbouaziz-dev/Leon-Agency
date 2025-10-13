@@ -1,8 +1,8 @@
 import LeftFang from "@/assets/svg/hero/LeftFang.svg";
 import Lion from "@/assets/svg/hero/Lion.svg";
 import RightFang from "@/assets/svg/hero/RightFang.svg";
-import Mouse from "@/assets/svg/Hero/Mouse.svg";
 import CallBtn from "./CallBtn";
+import ChatBoot from "./ChatBoot";
 
 const Hero = () => {
   return (
@@ -36,13 +36,7 @@ const Hero = () => {
           </p>
         </div>
       </div>
-      <div className="flex items-center gap-2">
-        <Mouse className="xs:w-9 h-14 w-7 xl:w-11" />
-        <div>
-          <p className="label mb-1">Scroll down</p>
-          <p className="sublabel">to see more</p>
-        </div>
-      </div>
+      <ChatBoot />
     </section>
   );
 };

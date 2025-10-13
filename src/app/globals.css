@@ -7,18 +7,22 @@
   --background: #0a0a0a;
   --foreground: #ededed;
   --background-transparent: #0a0a0a3d;
+  --foreground-transparent: #ededed3d;
   --primary: #10cbb8;
   --secondary: #466271;
   --sublabel: #787878;
   --heading-light: #e0e0e0;
   --heading-dark: #1c1c1c;
+  --neutral: #262626;
 }
 
 html.light {
   --background: #f7f7f7;
   --foreground: #212121;
   --background-transparent: #f7f7f74a;
+  --foreground-transparent: #2121214a;
   --secondary: #2b4754;
+  --neutral: #d5d3d3;
 }
 
 @media (prefers-color-scheme: light) {
@@ -166,6 +170,9 @@ html.light {
   .arbitrary-heading3 {
     @apply [@media(min-width:768px)_and_(max-width:1023px)]:!text-2xl;
   }
+  .btn-disabled {
+    @apply bg-neutral-700;
+  }
 }
 
 @layer components {
@@ -173,7 +180,7 @@ html.light {
     @apply xs:px-4 mx-auto mt-[4.6875rem] max-w-[120rem] px-2.5 md:mt-[6rem] lg:mt-[7rem] xl:mt-[8rem] xl:px-5 2xl:mt-[9.375rem];
   }
   .header {
-    @apply fixed top-0 right-[10px] left-[10px] z-50 !my-2.5 flex items-center justify-between rounded-4xl px-4 py-2 md:!bg-transparent md:!shadow-none md:!backdrop-blur-none;
+    @apply fixed top-0 right-[10px] left-[10px] z-10 !my-2.5 flex items-center justify-between rounded-4xl px-4 py-2 md:!bg-transparent md:!shadow-none md:!backdrop-blur-none;
   }
   .btn-primary {
     background-color: var(--primary);
