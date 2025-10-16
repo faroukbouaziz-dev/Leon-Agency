@@ -39,7 +39,7 @@ const Header = () => {
 
     const sections = document.querySelectorAll(".section");
     sections.forEach((sec) => {
-      secObserver.observe(sec!);
+      secObserver.observe(sec);
     });
 
     return () => {
@@ -68,7 +68,7 @@ const Header = () => {
               "testimonials",
               "contact",
             ].map((link) => (
-              <li key={`$desktop-${link}`}>
+              <li key={`desk-${link}`}>
                 <a href={`#${link}`} className="link headerLink">
                   {link}
                 </a>

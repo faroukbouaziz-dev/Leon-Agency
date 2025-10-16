@@ -55,18 +55,20 @@ const ChatBoot = () => {
     }
   };
 
-  const handleMsg = (e: React.SyntheticEvent | string) => {
+  const handleMsg = (
+    e: React.SyntheticEvent | React.MouseEvent<HTMLButtonElement>,
+  ) => {
     setInputValue(false);
     if (userGreeted) setUserGreeted(false);
     let msg;
-    if (typeof e !== "string") {
+    if (e.type === "submit") {
       e.preventDefault();
       const form = e.target as HTMLFormElement;
       const formData = new FormData(form);
       msg = formData.get("message") as string;
       form.reset();
     } else {
-      msg = e;
+      msg = e.currentTarget.textContent;
     }
     chatBox.current?.insertAdjacentHTML(
       "beforeend",
@@ -76,13 +78,13 @@ const ChatBoot = () => {
   };
 
   return (
-    <div>
-      <button ref={chatBtn} onClick={() => setChat(true)}>
-        <Image
-          src={BootImg}
-          alt="boot"
-          className="fixed right-5 bottom-6 z-10 w-1/5 max-w-22"
-        />
+    <div className="section fixed z-10 flex w-full justify-end">
+      <button
+        ref={chatBtn}
+        onClick={() => setChat(true)}
+        className="mr-5 mb-5 w-1/5 max-w-22"
+      >
+        <Image src={BootImg} alt="boot" />
       </button>
       <div
         className={`fixed !inset-0 z-10 flex h-svh flex-col items-center bg-[var(--background)] shadow-[0_1px_15px_var(--foreground-transparent)] md:!inset-[initial] md:!right-5 md:!bottom-5 md:h-[550px] md:w-[350px] md:max-w-[350px] md:rounded-2xl ${
@@ -109,19 +111,19 @@ const ChatBoot = () => {
           {userGreeted && (
             <div className="mt-10 flex flex-col items-center gap-3">
               <button
-                onClick={() => handleMsg("What services do you offer?")}
+                onClick={handleMsg}
                 className="rounded-lg rounded-br-none bg-[var(--primary)] p-2"
               >
                 What services do you offer?
               </button>
               <button
-                onClick={() => handleMsg("Can I get a free consultation?")}
+                onClick={handleMsg}
                 className="rounded-lg rounded-br-none bg-[var(--primary)] p-2"
               >
                 Can I get a free consultation?
               </button>
               <button
-                onClick={() => handleMsg("What apps do you build?")}
+                onClick={handleMsg}
                 className="rounded-lg rounded-br-none bg-[var(--primary)] p-2"
               >
                 What apps do you build?

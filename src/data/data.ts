@@ -1,7 +1,7 @@
 // SERVICES
-import Uiux1 from "@/assets/services/uiux/uiux1.jpg";
-import Uiux2 from "@/assets/services/uiux/uiux2.jpg";
-import Uiux3 from "@/assets/services/uiux/uiux3.jpg";
+import UiuxDes1 from "@/assets/services/uiux/uiux1.jpg";
+import UiuxDes2 from "@/assets/services/uiux/uiux2.jpg";
+import UiuxDes3 from "@/assets/services/uiux/uiux3.jpg";
 import AppDev1 from "@/assets/services/appDev/appDev1.jpg";
 import AppDev2 from "@/assets/services/appDev/appDev2.jpg";
 import AppDev3 from "@/assets/services/appDev/appDev3.jpg";
@@ -18,8 +18,8 @@ export const servicesData = [
     description:
       "We craft intuitive, user-friendly interfaces that balance aesthetics with functionality. From wireframes to polished designs, our process ensures your product feels seamless and engaging across every device.",
     images: {
-      short: [Uiux1, Uiux2],
-      long: Uiux3,
+      short: [UiuxDes1, UiuxDes2],
+      long: UiuxDes3,
     },
   },
   {
@@ -53,6 +53,106 @@ export const servicesData = [
     },
   },
 ];
+
+// PORTFOLIO
+import Uiux1 from "@/assets/portfolio/uiux/1.jpg";
+import Uiux2 from "@/assets/portfolio/uiux/2.jpg";
+import Uiux3 from "@/assets/portfolio/uiux/3.jpg";
+import Uiux4 from "@/assets/portfolio/uiux/4.jpg";
+import Uiux5 from "@/assets/portfolio/uiux/5.jpg";
+import Uiux6 from "@/assets/portfolio/uiux/6.jpg";
+import Uiux7 from "@/assets/portfolio/uiux/7.jpg";
+import Uiux8 from "@/assets/portfolio/uiux/8.jpg";
+import Uiux9 from "@/assets/portfolio/uiux/9.jpg";
+import Uiux10 from "@/assets/portfolio/uiux/10.jpg";
+import Uiux11 from "@/assets/portfolio/uiux/11.jpg";
+import Uiux12 from "@/assets/portfolio/uiux/12.jpg";
+
+import App1 from "@/assets/portfolio/apps/1.jpg";
+import App2 from "@/assets/portfolio/apps/2.jpg";
+import App3 from "@/assets/portfolio/apps/3.jpg";
+import App4 from "@/assets/portfolio/apps/4.jpg";
+import App5 from "@/assets/portfolio/apps/5.jpg";
+import App6 from "@/assets/portfolio/apps/6.jpg";
+import App7 from "@/assets/portfolio/apps/7.jpg";
+import App8 from "@/assets/portfolio/apps/8.jpg";
+import App9 from "@/assets/portfolio/apps/9.jpg";
+import App10 from "@/assets/portfolio/apps/10.jpg";
+import App11 from "@/assets/portfolio/apps/11.jpg";
+import App12 from "@/assets/portfolio/apps/12.jpg";
+import App13 from "@/assets/portfolio/apps/13.jpg";
+import App14 from "@/assets/portfolio/apps/14.jpg";
+import App15 from "@/assets/portfolio/apps/15.jpg";
+import App16 from "@/assets/portfolio/apps/16.jpg";
+import App17 from "@/assets/portfolio/apps/17.jpg";
+import App18 from "@/assets/portfolio/apps/18.jpg";
+
+import Graphic1 from "@/assets/portfolio/graphic/1.jpg";
+import Graphic2 from "@/assets/portfolio/graphic/2.jpg";
+import Graphic3 from "@/assets/portfolio/graphic/3.jpg";
+import Graphic4 from "@/assets/portfolio/graphic/4.jpg";
+import Graphic5 from "@/assets/portfolio/graphic/5.jpg";
+import Graphic6 from "@/assets/portfolio/graphic/6.jpg";
+import Graphic7 from "@/assets/portfolio/graphic/7.jpg";
+import Graphic8 from "@/assets/portfolio/graphic/8.jpg";
+import Graphic9 from "@/assets/portfolio/graphic/9.jpg";
+import Graphic10 from "@/assets/portfolio/graphic/10.jpg";
+import Graphic11 from "@/assets/portfolio/graphic/11.jpg";
+import Graphic12 from "@/assets/portfolio/graphic/12.jpg";
+import Graphic13 from "@/assets/portfolio/graphic/13.jpg";
+import Graphic14 from "@/assets/portfolio/graphic/14.jpg";
+export const portfolioData = {
+  uiux: [
+    Uiux1,
+    Uiux2,
+    Uiux3,
+    Uiux4,
+    Uiux5,
+    Uiux6,
+    Uiux7,
+    Uiux8,
+    Uiux9,
+    Uiux10,
+    Uiux11,
+    Uiux12,
+  ],
+  apps: [
+    App1,
+    App2,
+    App3,
+    App4,
+    App5,
+    App6,
+    App7,
+    App8,
+    App9,
+    App10,
+    App11,
+    App12,
+    App13,
+    App14,
+    App15,
+    App16,
+    App17,
+    App18,
+  ],
+  graphic: [
+    Graphic1,
+    Graphic2,
+    Graphic3,
+    Graphic4,
+    Graphic5,
+    Graphic6,
+    Graphic7,
+    Graphic8,
+    Graphic9,
+    Graphic10,
+    Graphic11,
+    Graphic12,
+    Graphic13,
+    Graphic14,
+  ],
+};
 
 // TESTIMONIALS
 import Client1 from "@/assets/testimonials/client1.jpg";
