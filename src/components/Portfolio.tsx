@@ -13,13 +13,13 @@ import { useEffect, useState } from "react";
 import { portfolioData } from "@/data/data";
 
 const Portfolio = () => {
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState<boolean | null>(null);
   const [currFilter, setCurrFilter] = useState(portfolioData.apps);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
     handleResize();
-    window.addEventListener("resize", () => handleResize);
+    window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 

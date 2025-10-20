@@ -172,7 +172,7 @@ export const testimonialsData = [
     name: "Johny Smith",
     job: "CEO, MISV",
     testimonial:
-      "Leon Agency expertly transformed our concept into a reality with their creative expertise service. The outcome was beyond our expectations, and we strongly recommend them to anyone seeking high-quality design.",
+      "Leon Agency expertly transformed our concept into a reality with their creative expertise service. The outcome was beyond our expectations.",
   },
   {
     id: 2,

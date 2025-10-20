@@ -196,9 +196,6 @@ html.light {
   .portfolio-img {
     @apply xs:h-48 h-33 w-9/12 rounded-xl sm:h-65 md:h-52 md:w-1/2 lg:h-auto;
   }
-  .half-circel {
-    @apply absolute top-3 left-2 -z-10 h-50 w-27 rounded-r-full border-3 border-l-0 lg:top-7 lg:h-81 lg:w-50;
-  }
   .input {
     @apply block h-12 w-full border-b-2 border-white px-2 focus:outline-0;
   }
