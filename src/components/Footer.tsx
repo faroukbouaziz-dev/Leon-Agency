@@ -1,53 +1,39 @@
-import Newsletter from "@/assets/svg/Icons/newsletter.svg";
 import LionSide from "@/assets/svg/lionSide.svg";
-import { FaDribbble, FaLinkedinIn } from "react-icons/fa";
-import { FaUpwork, FaXTwitter } from "react-icons/fa6";
-import { FiSmartphone } from "react-icons/fi";
+import { FaInstagram, FaTiktok } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { FiGithub, FiSmartphone } from "react-icons/fi";
 import { IoLocationOutline } from "react-icons/io5";
 import { MdOutlineEmail } from "react-icons/md";
+import NewsLetter from "./NewsLetter";
 
 const Footer = () => {
   return (
     <footer className="relative mt-[4.6875rem] overflow-hidden bg-[var(--secondary)] p-4 pt-4 !text-[var(--background)] lg:mt-[8rem]">
       <div className="items-start gap-10 md:flex xl:!gap-40">
-        <form className="py-4 lg:w-120">
-          <label htmlFor="newsletter">
-            Subscribe to our newsletter and get daily updates
-          </label>
-          <input
-            type="email"
-            id="newsletter"
-            placeholder="Email"
-            className="input mt-3 !border-[var(--background)]"
-          />
-          <button type="submit" className="btn-primary mt-3 ml-auto">
-            <Newsletter className="h-6 w-6" />
-            <span>Subcribe</span>
-          </button>
-        </form>
-        <div className="mt-5 flex min-w-sm items-center justify-evenly md:items-start">
+        <NewsLetter />
+        <div className="2xs:justify-evenly mt-5 flex min-w-sm items-center md:items-start">
           <ul className="flex flex-col gap-3 text-center uppercase">
             <li>
-              <a href="">Home</a>
+              <a href="#home">Home</a>
             </li>
             <li>
-              <a href="">About</a>
+              <a href="#about">About</a>
             </li>
             <li>
-              <a href="">Services</a>
+              <a href="#services">Services</a>
             </li>
             <li>
-              <a href="">Portfolio</a>
+              <a href="#portfolio">Portfolio</a>
             </li>
             <li>
-              <a href="">Testimonials</a>
+              <a href="#testimonials">Testimonials</a>
             </li>
             <li>
-              <a href="">Contact</a>
+              <a href="#contact">Contact</a>
             </li>
           </ul>
-          <div className="h-60 w-0.5 !bg-[var(--background)] md:h-55 lg:mx-10" />
-          <div className="max-w-[45%]">
+          <div className="mx-5 h-60 w-0.5 !bg-[var(--background)] md:h-55 lg:mx-10" />
+          <div className="flex max-w-[45%] flex-col items-center justify-center">
             <ul>
               <li className="footer-contact">
                 <MdOutlineEmail size={24} />
@@ -64,16 +50,30 @@ const Footer = () => {
             </ul>
             <ul className="mt-8 flex items-center gap-2">
               <li>
-                <FaXTwitter size={24} />
+                <a href="https://github.com/faroukbouaziz-dev" target="_blank">
+                  <FiGithub size={24} />
+                </a>
               </li>
               <li>
-                <FaUpwork size={24} />
+                <a href="https://x.com/faroukbou_dev" target="_blank">
+                  <FaXTwitter size={24} />
+                </a>
               </li>
               <li>
-                <FaDribbble size={24} />
+                <a
+                  href="https://www.instagram.com/faroukbouaziz.dev"
+                  target="_blank"
+                >
+                  <FaInstagram size={24} />
+                </a>
               </li>
               <li>
-                <FaLinkedinIn size={24} />
+                <a
+                  href="https://www.tiktok.com/@faroukbouaziz.dev"
+                  target="_blank"
+                >
+                  <FaTiktok size={24} />
+                </a>
               </li>
             </ul>
           </div>

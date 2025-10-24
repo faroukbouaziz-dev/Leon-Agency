@@ -101,7 +101,7 @@ const Portfolio = () => {
               <Image
                 src={img}
                 alt={`portfolio image ${i + 1}`}
-                className="h-[300px] w-full rounded-2xl object-cover lg:h-[400px]"
+                className="h-[250px] w-full rounded-2xl object-cover lg:h-[400px]"
               />
             </SwiperSlide>
           ))}

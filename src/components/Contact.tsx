@@ -8,7 +8,7 @@ import { MdOutlineEmail } from "react-icons/md";
 import CallBtn from "./CallBtn";
 import { useCallback, useEffect, useRef, useState } from "react";
 import Select from "react-select";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import { sendEmail } from "@/actions/sendEmail";
 
 const Contact = () => {
@@ -290,11 +290,6 @@ const Contact = () => {
             >
               <FiSend className="h-6 w-6" />
               <span>Submit</span>
-              <ToastContainer
-                position="bottom-left"
-                autoClose={2000}
-                toastClassName="!bg-[var(--neutral)]"
-              />
             </button>
           </form>
         </div>

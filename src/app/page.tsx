@@ -7,6 +7,7 @@ import Portfolio from "@/components/Portfolio";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import { ToastContainer } from "react-toastify";
 
 export default function Home() {
   return (
@@ -20,6 +21,11 @@ export default function Home() {
       <Testimonials />
       <Contact />
       <Footer />
+      <ToastContainer
+        position="bottom-left"
+        autoClose={2000}
+        toastClassName="!bg-[var(--neutral)]"
+      />
     </>
   );
 }

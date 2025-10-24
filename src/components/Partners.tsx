@@ -12,6 +12,7 @@ const Logos = () => {
         loop={0}
         speed={150}
         gradient
+        gradientWidth={50}
         gradientColor="var(--background)"
       >
         {Object.entries(Brands).map(([name, Icon]) => (
