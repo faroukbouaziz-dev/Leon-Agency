@@ -171,7 +171,7 @@ html.light {
     @apply [@media(min-width:768px)_and_(max-width:1023px)]:!text-2xl;
   }
   .btn-disabled {
-    @apply bg-neutral-700;
+    @apply cursor-not-allowed bg-neutral-700;
   }
 }
 
@@ -197,7 +197,7 @@ html.light {
     @apply xs:h-48 h-33 w-9/12 rounded-xl sm:h-65 md:h-52 md:w-1/2 lg:h-auto;
   }
   .input {
-    @apply block h-12 w-full border-b-2 border-white px-2 focus:outline-0;
+    @apply block h-12 w-full border-b-2 border-[var(--foreground)] !bg-[var(--background)] px-2 focus:outline-0;
   }
   .footer-contact {
     @apply mb-4 flex flex-col items-center lg:mb-4 lg:!flex-row lg:gap-2;
