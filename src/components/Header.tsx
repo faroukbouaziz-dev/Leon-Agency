@@ -7,45 +7,78 @@ import { useEffect, useState } from "react";
 import CallBtn from "./CallBtn";
 
 const Header = () => {
-  const [lightTheme, setLightTheme] = useState<boolean | null>(null);
-  const [menuOpened, setMenuOpened] = useState(false);
+  const [isLight, setIsLight] = useState<boolean | null>(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    const isLightSet = document.documentElement.classList.contains("light");
-    const isDarkSet = document.documentElement.classList.contains("dark");
-    const prefersLight = window.matchMedia(
+    const htmlElmntClss = document.documentElement.classList;
+
+    const isLightSet = htmlElmntClss.contains("light");
+    const isDarkSet = htmlElmntClss.contains("dark");
+    const isLightPreferred = window.matchMedia(
       "(prefers-color-scheme: light)",
     ).matches;
 
-    setLightTheme(isLightSet || (!isDarkSet && prefersLight));
+    setIsLight(isLightSet || (!isDarkSet && isLightPreferred));
   }, []);
 
   useEffect(() => {
-    const headerLinks = document.querySelectorAll(".headerLink");
-    const secObserver = new IntersectionObserver((sections) => {
-      sections.forEach((sec) => {
-        if (sec.isIntersecting) {
-          headerLinks.forEach((link) => {
-            if (sec.target.id !== link.textContent.toLocaleLowerCase()) {
-              link.classList.remove("active");
-            } else {
-              link.classList.add("active");
-              window.history.replaceState(null, "", `#${link.textContent}`);
-            }
-          });
-        }
+    const links = document.querySelectorAll(".headerLink");
+    const sections = document.querySelectorAll(".section");
+
+    if (!links || !sections) {
+      console.error(
+        "No .headerLink or .section elements found to apply sections observing",
+      );
+      return;
+    }
+    if (!(links instanceof NodeList) || !(sections instanceof NodeList)) {
+      console.error(
+        "Links or sections aren't NodeLists  to apply sections observing",
+      );
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((sec) => {
+        if (!sec.isIntersecting) return;
+
+        links.forEach((link) => {
+          const linkTxt = link.textContent.toLocaleLowerCase().trim();
+          if (!linkTxt) return;
+
+          if (sec.target.id === linkTxt) {
+            link.classList.add("active");
+            window.history.replaceState(null, "", `#${linkTxt}`);
+          } else {
+            link.classList.remove("active");
+          }
+        });
       });
     });
 
-    const sections = document.querySelectorAll(".section");
-    sections.forEach((sec) => {
-      secObserver.observe(sec);
-    });
+    sections.forEach((s) => observer.observe(s));
 
     return () => {
-      sections.forEach((section) => secObserver.unobserve(section));
+      sections.forEach((s) => observer.unobserve(s));
     };
   }, []);
+
+  const handleThemeChange = () => {
+    const newTheme = !isLight;
+
+    setIsLight(newTheme);
+    document.cookie = `isLight=${newTheme}; path=/; max-age=31536000`;
+
+    const htmlElmntClss = document.documentElement.classList;
+    if (isLight) {
+      htmlElmntClss.remove("light");
+      htmlElmntClss.add("dark");
+    } else {
+      htmlElmntClss.remove("dark");
+      htmlElmntClss.add("light");
+    }
+  };
 
   return (
     <>
@@ -55,7 +88,7 @@ const Header = () => {
           alt="Logo"
           width={32}
           height={32}
-          className="fill-primary md:w-14"
+          className="fill-primary md:!w-14"
         />
 
         <nav className="glass-bg absolute left-1/2 hidden -translate-x-1/2 rounded-4xl px-3 py-[0.3rem] md:block">
@@ -79,55 +112,41 @@ const Header = () => {
 
         <div className="flex items-center gap-4">
           <button
-            onClick={() => {
-              if (lightTheme) {
-                document.documentElement.classList.remove("light");
-                document.documentElement.classList.add("dark");
-              } else {
-                document.documentElement.classList.remove("dark");
-                document.documentElement.classList.add("light");
-              }
-              document.cookie = `lightTheme=${!lightTheme}; path=/; max-age=31536000`;
-              setLightTheme(!lightTheme);
-            }}
+            onClick={handleThemeChange}
             className="flex items-center gap-1 md:rounded-full md:bg-white/15 md:p-3 md:shadow-[inset_0px_0px_3px_1px_#fff,0px_0px_5px_1px_hsla(0,0%,0%,0.071)] md:backdrop-blur-[2px]"
           >
-            {lightTheme ? (
+            {isLight ? (
               <FiMoon size={24} />
-            ) : lightTheme === false ? (
+            ) : isLight === false ? (
               <FiSun size={24} />
             ) : (
               ""
             )}
             <span className="hidden text-nowrap xl:block">
-              {lightTheme
-                ? "Dark mode"
-                : lightTheme === false
-                  ? "Light mode"
-                  : ""}
+              {isLight ? "Dark mode" : isLight === false ? "Light mode" : ""}
             </span>
           </button>
-          <div
+          <button
             onClick={() => {
-              setMenuOpened(true);
+              setIsMenuOpen(true);
               document.body.style.overflowY = "hidden";
             }}
             className="md:hidden"
           >
             <IoMenu size={24} />
-          </div>
+          </button>
           <CallBtn className="hidden items-center gap-1 xl:flex" />
         </div>
       </header>
       <div
         className={`fixed inset-0 z-50 h-svh bg-[var(--background)] pt-6 ${
-          menuOpened ? "block opacity-100" : "hidden opacity-0"
+          isMenuOpen ? "block opacity-100" : "hidden opacity-0"
         }`}
       >
         <button
           className="absolute top-3 right-5"
           onClick={() => {
-            setMenuOpened(false);
+            setIsMenuOpen(false);
             document.body.style.overflowY = "scroll";
           }}
         >
@@ -147,7 +166,7 @@ const Header = () => {
                 href={`#${link}`}
                 className="heading2 headerLink"
                 onClick={() => {
-                  setMenuOpened(!menuOpened);
+                  setIsMenuOpen(!isMenuOpen);
                   document.body.style.overflowY = "scroll";
                 }}
               >

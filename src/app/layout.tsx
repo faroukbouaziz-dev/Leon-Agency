@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
-import { cookies } from "next/headers";
+import { getThemePreference } from "@/lib/cookies";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -25,12 +25,12 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const cookie = await cookies();
-  const lightTheme = JSON.parse(cookie.get("lightTheme")?.value ?? "");
+  const isLight = await getThemePreference();
+
   return (
     <html
       lang="en"
-      className={lightTheme ? "light" : lightTheme === false ? "dark" : ""}
+      className={isLight ? "light" : isLight === false ? "dark" : ""}
     >
       <body className={`${manrope.variable} ${knockbold.variable} antialiased`}>
         {children}
