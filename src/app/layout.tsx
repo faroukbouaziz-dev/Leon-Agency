@@ -34,6 +34,7 @@ export default async function RootLayout({
     >
       <body className={`${manrope.variable} ${knockbold.variable} antialiased`}>
         {children}
+
         <link
           href="https://assets.calendly.com/assets/external/widget.css"
           rel="stylesheet"

@@ -2,7 +2,7 @@ import LeftFang from "@/assets/svg/hero/LeftFang.svg";
 import Lion from "@/assets/svg/hero/Lion.svg";
 import RightFang from "@/assets/svg/hero/RightFang.svg";
 import CallBtn from "./CallBtn";
-import ChatBoot from "./ChatBoot";
+import ChatBot from "./ChatBot";
 
 const Hero = () => {
   return (
@@ -36,7 +36,7 @@ const Hero = () => {
           </p>
         </div>
       </div>
-      <ChatBoot />
+      <ChatBot />
     </section>
   );
 };

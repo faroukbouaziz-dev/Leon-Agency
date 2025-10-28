@@ -26,19 +26,6 @@ const Header = () => {
     const links = document.querySelectorAll(".headerLink");
     const sections = document.querySelectorAll(".section");
 
-    if (!links || !sections) {
-      console.error(
-        "No .headerLink or .section elements found to apply sections observing",
-      );
-      return;
-    }
-    if (!(links instanceof NodeList) || !(sections instanceof NodeList)) {
-      console.error(
-        "Links or sections aren't NodeLists  to apply sections observing",
-      );
-      return;
-    }
-
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((sec) => {
         if (!sec.isIntersecting) return;

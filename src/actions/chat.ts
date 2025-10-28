@@ -1,4 +1,5 @@
 "use server";
+import { aiPrompt } from "@/data/data";
 import { GoogleGenAI } from "@google/genai";
 
 type History = {
@@ -6,31 +7,54 @@ type History = {
   parts: { text: string }[];
 }[];
 
-const history: History = [];
-const ai = new GoogleGenAI({});
+type Response =
+  | { success: true; aiReply: string }
+  | { success: false; error: string };
 
-export const ai_boot = async (msg: string) => {
-  history.push({ role: "user", parts: [{ text: msg }] });
+const ai = new GoogleGenAI({});
+const histories = new Map<string, History>();
+
+export const aiChat = async (
+  userId: string = "",
+  msg: string,
+): Promise<Response> => {
+  if (typeof userId !== "string" || !userId.trim()) {
+    return { success: false, error: "Invalid user ID" };
+  }
+  if (typeof msg !== "string" || !msg.trim()) {
+    return { success: false, error: "Invalid message" };
+  }
+
+  histories.set(userId, [
+    ...(histories.get(userId) || []),
+    { role: "user", parts: [{ text: msg }] },
+  ]);
 
   try {
     const response = await ai.models.generateContent({
       model: "gemini-2.5-flash",
-      contents: history,
+      contents: histories.get(userId)!,
       config: {
+        systemInstruction: aiPrompt,
+        temperature: 0.7,
         thinkingConfig: {
           thinkingBudget: 0,
         },
       },
     });
 
-    if (response.text && response.text.trim().length !== 0) {
-      history.push({ role: "model", parts: [{ text: response.text }] });
-    } else {
-      throw new Error("Empty response from Gemini model");
-    }
+    const resText = response.text?.trim();
 
-    return response.text;
+    if (!resText) throw new Error("Empty response from AI model");
+
+    histories.set(userId, [
+      ...histories.get(userId)!,
+      { role: "model", parts: [{ text: response.text! }] },
+    ]);
+
+    return { success: true, aiReply: resText };
   } catch (err) {
-    return err;
+    console.error("AI had an error: ", err);
+    return { success: false, error: (err as Error).message };
   }
 };

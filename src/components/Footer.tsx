@@ -80,7 +80,12 @@ const Footer = () => {
         </div>
       </div>
       <div className="mt-5 xl:!mt-0">
-        <p>© Portfolio templates were designed by Freepik</p>
+        <p>
+          © Portfolio templates were designed by{" "}
+          <a href="https://www.freepik.com/" className="underline">
+            Freepik
+          </a>
+        </p>
         <p>© 2025 Leon Agency. All rights reserved.</p>
       </div>
       <h2 className="heading2 2xs:!leading-15 mt-5 !mb-0 !leading-12 md:!leading-20 lg:!mt-10 lg:!leading-24 xl:!leading-30">
