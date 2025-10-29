@@ -60,21 +60,24 @@ const Contact = () => {
       const formData = new FormData(e.target as HTMLFormElement);
 
       const name = formData.get("name") as string;
-      const email = formData.get("email") as string;
+      const email = (formData.get("email") as string) || "";
       const industry = (formData.get("industry") as string) || "";
       const company = (formData.get("company") as string) || "";
       const service = (formData.get("service") as string) || "";
       const message = formData.get("message") as string;
 
       toast.promise(
-        sendEmail({
-          name,
-          email,
-          industry,
-          company,
-          service,
-          message,
-        }),
+        sendEmail(
+          {
+            name,
+            email,
+            industry,
+            company,
+            service,
+            message,
+          },
+          feedback,
+        ),
         {
           pending: "Message is sending...",
           success: "Message sent successfully!",
