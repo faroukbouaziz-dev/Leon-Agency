@@ -70,13 +70,15 @@ const Header = () => {
   return (
     <>
       <header className="header glass-bg section">
-        <Image
-          src="/icon.svg"
-          alt="Logo"
-          width={32}
-          height={32}
-          className="fill-primary md:!w-14"
-        />
+        <a href="#">
+          <Image
+            src="/icon.svg"
+            alt="Logo"
+            width={32}
+            height={32}
+            className="fill-primary md:!w-14"
+          />
+        </a>
 
         <nav className="glass-bg absolute left-1/2 hidden -translate-x-1/2 rounded-4xl px-3 py-[0.3rem] md:block">
           <ul className="flex uppercase">
@@ -100,7 +102,7 @@ const Header = () => {
         <div className="flex items-center gap-4">
           <button
             onClick={handleThemeChange}
-            className="flex items-center gap-1 md:rounded-full md:bg-white/15 md:p-3 md:shadow-[inset_0px_0px_3px_1px_#fff,0px_0px_5px_1px_hsla(0,0%,0%,0.071)] md:backdrop-blur-[2px]"
+            className="btn-shinyswipe-effect btn-scale-effect flex items-center gap-1 before:hidden md:rounded-full md:bg-white/15 md:p-3 md:shadow-[inset_0px_0px_3px_1px_#fff,0px_0px_5px_1px_hsla(0,0%,0%,0.071)] md:backdrop-blur-[2px] md:before:block"
           >
             {isLight ? (
               <FiMoon size={24} />
@@ -118,7 +120,7 @@ const Header = () => {
               setIsMenuOpen(true);
               document.body.style.overflowY = "hidden";
             }}
-            className="md:hidden"
+            className="btn-scale-effect md:hidden"
           >
             <IoMenu size={24} />
           </button>
@@ -139,7 +141,7 @@ const Header = () => {
         >
           <IoCloseOutline size={32} />
         </button>
-        <ul className="flex flex-col items-center gap-4">
+        <ul className="flex h-full flex-col items-center justify-center gap-4">
           {[
             "home",
             "about",

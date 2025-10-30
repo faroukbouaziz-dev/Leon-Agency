@@ -101,7 +101,7 @@ const ChatBot = () => {
       <button
         ref={chatBtn}
         onClick={() => setIsChatOpen(true)}
-        className="mr-5 mb-5 w-1/5 max-w-22"
+        className="mr-5 mb-5 w-1/5 max-w-22 duration-200 hover:scale-105"
       >
         <Image src={BootImg} alt="boot" />
       </button>

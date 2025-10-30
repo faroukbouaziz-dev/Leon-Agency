@@ -21,7 +21,7 @@ const Contact = () => {
   const msgInput = useRef<HTMLTextAreaElement>(null);
 
   const handleFeedback = async () => {
-    toggle.current?.classList.toggle("!left-7");
+    toggle.current?.classList.toggle("left-7");
     toggle.current?.classList.toggle("!bg-blue-500");
     toggle.current?.parentElement?.classList.toggle("!bg-blue-200");
     setFeedback(!feedback);
@@ -142,17 +142,17 @@ const Contact = () => {
           <div className="card-spacing-variant flex items-center justify-between border-b-2">
             <h3 className="heading3 arbitrary-heading3">Social links</h3>
             <ul className="flex items-center gap-2">
-              <li>
+              <li className="duration-200 hover:scale-105">
                 <a href="https://github.com/faroukbouaziz-dev" target="_blank">
                   <FiGithub size={28} />
                 </a>
               </li>
-              <li>
+              <li className="duration-200 hover:scale-105">
                 <a href="https://x.com/faroukbou_dev" target="_blank">
                   <FaXTwitter size={28} />
                 </a>
               </li>
-              <li>
+              <li className="duration-200 hover:scale-105">
                 <a
                   href="https://www.instagram.com/faroukbouaziz.dev"
                   target="_blank"
@@ -160,7 +160,7 @@ const Contact = () => {
                   <FaInstagram size={28} />
                 </a>
               </li>
-              <li>
+              <li className="duration-200 hover:scale-105">
                 <a
                   href="https://www.tiktok.com/@faroukbouaziz.dev"
                   target="_blank"
@@ -180,10 +180,10 @@ const Contact = () => {
               className="mb-3 flex items-center gap-1 justify-self-end"
             >
               <span className="label-active">Feedback</span>
-              <div className="relative h-5 w-12 rounded-2xl bg-gray-300">
+              <div className="relative h-5 w-12 rounded-2xl bg-gray-300 transition-all duration-300">
                 <div
                   ref={toggle}
-                  className="absolute -top-0.5 h-6 w-6 rounded-full bg-[#9097a3]"
+                  className="absolute -top-0.5 left-0 h-6 w-6 rounded-full bg-[#9097a3] transition-all duration-300"
                 ></div>
               </div>
             </button>

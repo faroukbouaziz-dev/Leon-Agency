@@ -47,7 +47,7 @@ const Portfolio = () => {
         <button
           onClick={handleFilter}
           value={0}
-          className="btn-secondary glass-bg"
+          className="btn-shinyswipe-effect btn-secondary glass-bg"
         >
           <Uixux />
           UI/UX
@@ -55,7 +55,7 @@ const Portfolio = () => {
         <button
           onClick={handleFilter}
           value={1}
-          className="btn-secondary glass-bg active fill-[var(--primary)]"
+          className="btn-shinyswipe-effect btn-secondary glass-bg active fill-[var(--primary)] before:!block"
         >
           <Apps />
           Apps
@@ -63,7 +63,7 @@ const Portfolio = () => {
         <button
           onClick={handleFilter}
           value={2}
-          className="btn-secondary glass-bg"
+          className="btn-shinyswipe-effect btn-secondary glass-bg"
         >
           <Graphic />
           Graphic
