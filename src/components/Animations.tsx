@@ -87,12 +87,13 @@ const Animations = () => {
       const master = gsap.timeline({
         onStart: () => {
           gsap.to(overlay, {
-            scaleY: 0,
-            transformOrigin: "top",
+            xPercent: 100,
+            opacity: 0,
             duration: 1,
             ease: "power4.inOut",
             onComplete: () => {
-              document.body.style.overflow = "scroll";
+              gsap.set(overlay, { display: "none" });
+              document.body.style.overflow = "auto";
             },
           });
         },
@@ -102,7 +103,7 @@ const Animations = () => {
       const clientsTl = counterAnimation(happyClientsNum as HTMLElement, 50);
 
       if (mainTl && projectsTl && clientsTl)
-        master.add(mainTl, "+=0.7").add([projectsTl, clientsTl], ">");
+        master.add(mainTl, "+=1").add([projectsTl, clientsTl], ">");
     });
 
     return () => {
@@ -110,6 +111,7 @@ const Animations = () => {
       cursor.destroy();
     };
   }, []);
+
   return <></>;
 };
 

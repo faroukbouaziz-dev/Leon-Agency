@@ -131,7 +131,7 @@ html.light {
   .heading1 {
     font-family: var(--font-knockbold);
     font-size: clamp(4.375rem, 16vw, 15.625rem);
-    @apply uppercase;
+    text-transform: uppercase;
   }
   .heading2 {
     font-family: var(--font-knockbold);
