@@ -214,4 +214,5 @@ body {
   background-size: contain;
   color: var(--foreground);
   font-family: var(--font-manrope);
+  overflow: hidden;
 }

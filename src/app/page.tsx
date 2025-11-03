@@ -8,10 +8,12 @@ import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import { ToastContainer } from "react-toastify";
+import Animations from "@/components/Animations";
 
 export default function Home() {
   return (
     <>
+      <Animations />
       <Header />
       <Hero />
       <Partners />
