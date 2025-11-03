@@ -6,6 +6,7 @@ import { IoCloseOutline } from "react-icons/io5";
 import { BsSend } from "react-icons/bs";
 import { aiChat } from "@/actions/chat";
 import { toast } from "react-toastify";
+import VanillaTilt from "vanilla-tilt";
 
 const ChatBot = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -16,6 +17,16 @@ const ChatBot = () => {
   const chatBox = useRef<HTMLDivElement | null>(null);
   const suggestedMsgs = useRef<HTMLDivElement | null>(null);
   const userId = useRef(crypto.randomUUID());
+
+  useEffect(() => {
+    if (chatBtn.current)
+      VanillaTilt.init(chatBtn.current, {
+        max: 25,
+        speed: 400,
+        reverse: false,
+        "full-page-listening": true,
+      });
+  }, []);
 
   useEffect(() => {
     const isSmallScreen = window.innerWidth <= 768;

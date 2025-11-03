@@ -26,23 +26,26 @@ const Header = () => {
     const links = document.querySelectorAll(".headerLink");
     const sections = document.querySelectorAll(".section");
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((sec) => {
-        if (!sec.isIntersecting) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((sec) => {
+          if (!sec.isIntersecting) return;
 
-        links.forEach((link) => {
-          const linkTxt = link.textContent.toLocaleLowerCase().trim();
-          if (!linkTxt) return;
+          links.forEach((link) => {
+            const linkTxt = link.textContent.toLocaleLowerCase().trim();
+            if (!linkTxt) return;
 
-          if (sec.target.id === linkTxt) {
-            link.classList.add("active");
-            window.history.replaceState(null, "", `#${linkTxt}`);
-          } else {
-            link.classList.remove("active");
-          }
+            if (sec.target.id === linkTxt) {
+              link.classList.add("active");
+              window.history.replaceState(null, "", `#${linkTxt}`);
+            } else {
+              link.classList.remove("active");
+            }
+          });
         });
-      });
-    });
+      },
+      { threshold: 0.5 },
+    );
 
     sections.forEach((s) => observer.observe(s));
 

@@ -44,6 +44,7 @@ const NewsLetter = () => {
       />
       <button
         type="submit"
+        disabled={!submitable}
         className={`btn-primary mt-3 ml-auto ${!submitable ? "btn-disabled" : ""}`}
       >
         <Newsletter className="h-6 w-6" />
