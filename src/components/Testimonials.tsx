@@ -19,7 +19,9 @@ const Testimonials = () => {
 
   return (
     <section className="section !px-0" id="testimonials">
-      <h2 className="heading2 xs:px-4 px-2.5 xl:px-5">Testimonials</h2>
+      <h2 className="heading2 anim-typewriter xs:px-4 px-2.5 xl:px-5">
+        Testimonials
+      </h2>
       <div className={isMobile ? "px-5" : ""}>
         <Swiper
           className="mb-8 lg:mb-14"

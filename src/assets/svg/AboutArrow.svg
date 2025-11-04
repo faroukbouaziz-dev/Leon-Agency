@@ -1,10 +1,10 @@
 <svg viewBox="0 200 1604 600" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-  <line y1="-1.5" x2="35.0434" y2="-1.5"
+  <line  y1="-1.5" x2="35.0434" y2="-1.5"
         transform="matrix(0.945261 0.326314 -0.31951 0.947583 1569.5 228.044)"
         stroke="var(--secondary)" stroke-width="3"/>
   <path d="M1568 244.786C1581.41 242.109 1588.93 240.608 1602.34 237.931"
         stroke="var(--secondary)" stroke-width="3"/>
-  <path d="M1 755.817C932 787.184 534.5 200.219 1597 238.162"
+  <path class="logistic-arrow" d="M1 755.817C932 787.184 534.5 200.219 1597 238.162"
         stroke="var(--secondary)" stroke-width="5"/>
   <path d="M125 731.726C137.466 731.726 147.573 741.832 147.574 754.299C147.574 766.766 137.467 776.874 125 776.874C112.533 776.873 102.426 766.766 102.426 754.299C102.427 741.833 112.533 731.726 125 731.726Z"
         fill="#10C9B7" stroke="var(--background)" stroke-width="20"/>

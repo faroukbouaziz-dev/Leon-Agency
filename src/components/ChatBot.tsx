@@ -21,9 +21,9 @@ const ChatBot = () => {
   useEffect(() => {
     if (chatBtn.current)
       VanillaTilt.init(chatBtn.current, {
-        max: 25,
+        max: 40,
         speed: 400,
-        reverse: false,
+        reverse: true,
         "full-page-listening": true,
       });
   }, []);

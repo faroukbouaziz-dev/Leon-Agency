@@ -42,7 +42,9 @@ const Portfolio = () => {
 
   return (
     <section className="section !px-0" id="portfolio">
-      <h2 className="heading2 xs:px-4 px-2.5 xl:px-5">Our work</h2>
+      <h2 className="heading2 anim-typewriter xs:px-4 px-2.5 xl:px-5">
+        Our work
+      </h2>
       <div className="mx-auto mb-8 flex w-fit flex-wrap items-center justify-center gap-3 lg:mb-14 xl:gap-5">
         <button
           onClick={handleFilter}

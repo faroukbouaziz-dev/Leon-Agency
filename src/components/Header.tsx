@@ -156,7 +156,7 @@ const Header = () => {
             <li key={link}>
               <a
                 href={`#${link}`}
-                className="heading2 headerLink"
+                className="heading2 anim-typewriter headerLink"
                 onClick={() => {
                   setIsMenuOpen(!isMenuOpen);
                   document.body.style.overflowY = "scroll";

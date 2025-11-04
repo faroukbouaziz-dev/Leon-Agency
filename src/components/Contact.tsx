@@ -113,7 +113,7 @@ const Contact = () => {
 
   return (
     <section className="section" id="contact">
-      <h2 className="heading2">Let&apos;s talk</h2>
+      <h2 className="heading2 anim-typewriter">Let&apos;s talk</h2>
       <div className="xs:gap-25 flex flex-col items-center justify-around gap-15 md:flex-row md:items-start md:gap-0">
         <div className="w-full max-w-lg md:w-[40%]">
           <div className="card-spacing-variant flex items-center justify-between border-b-2 !pt-0">

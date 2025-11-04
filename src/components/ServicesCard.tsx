@@ -43,7 +43,7 @@ const ServicesCard = ({
             className="col-span-2 h-full w-full rounded-xl object-cover"
           />
         </div>
-        <p className="text-big w-11/12 text-center sm:w-1/2 sm:text-left">
+        <p className="text-animation text-big w-11/12 text-center sm:w-1/2 sm:text-left">
           {service.description}
         </p>
       </div>

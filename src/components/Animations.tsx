@@ -2,7 +2,10 @@
 
 import { followingDotCursor } from "cursor-effects";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLayoutEffect } from "react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Animations = () => {
   useLayoutEffect(() => {
@@ -110,6 +113,93 @@ const Animations = () => {
       ctx.revert();
       cursor.destroy();
     };
+  }, []);
+
+  useLayoutEffect(() => {
+    const texts = document.querySelectorAll(".text-animation");
+    texts.forEach((t) => {
+      gsap.from(t, {
+        scrollTrigger: {
+          trigger: t,
+          start: "top 70%",
+          end: "top 30%",
+          scrub: true,
+        },
+        opacity: 0,
+        y: 50,
+        duration: 2,
+      });
+    });
+  }, []);
+
+  useLayoutEffect(() => {
+    const selector = ".anim-typewriter";
+
+    const animate = () => {
+      gsap.killTweensOf(selector);
+      gsap.set(selector, { clearProps: "all" });
+
+      document.querySelectorAll(selector).forEach((el) => {
+        const count = el.textContent.length;
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: el,
+            start: "top 80%",
+          },
+        });
+
+        tl.fromTo(
+          el,
+          { width: 0 },
+          {
+            width: el.scrollWidth,
+            duration: count * 0.2,
+            ease: `steps(${count})`,
+          },
+        );
+
+        tl.to(
+          el,
+          {
+            borderRightColor: "transparent",
+            repeat: -1,
+            yoyo: true,
+            duration: 0.5,
+            ease: "none",
+          },
+          0,
+        );
+      });
+    };
+
+    animate();
+    window.addEventListener("resize", animate);
+
+    return () => window.removeEventListener("resize", animate);
+  }, []);
+
+  useLayoutEffect(() => {
+    const path = document.querySelector<SVGPathElement>(
+      ".AboutArrow_svg__logistic-arrow",
+    );
+    console.log(path);
+    if (!path) return;
+
+    const length = path.getTotalLength();
+    path.style.strokeDasharray = `${length}`;
+    path.style.strokeDashoffset = `${length}`;
+
+    gsap.to(path, {
+      strokeDashoffset: 0,
+      scrollTrigger: {
+        trigger: path,
+        start: "top 400%",
+        end: "top 10%",
+        scrub: true,
+      },
+      ease: "none",
+    });
   }, []);
 
   return <></>;
