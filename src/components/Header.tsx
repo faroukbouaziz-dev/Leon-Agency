@@ -76,10 +76,12 @@ const Header = () => {
         <a href="#">
           <Image
             src="/icon.svg"
-            alt="Logo"
+            alt="Agency logo image"
             width={32}
             height={32}
-            className="fill-primary md:!w-14"
+            className="fill-(--primary) md:w-14!"
+            priority
+            fetchPriority="high"
           />
         </a>
 
@@ -131,7 +133,7 @@ const Header = () => {
         </div>
       </header>
       <div
-        className={`fixed inset-0 z-50 h-svh bg-[var(--background)] pt-6 ${
+        className={`fixed inset-0 z-50 h-svh bg-(--background) pt-6 ${
           isMenuOpen ? "block opacity-100" : "hidden opacity-0"
         }`}
       >
@@ -156,7 +158,7 @@ const Header = () => {
             <li key={link}>
               <a
                 href={`#${link}`}
-                className="heading2 anim-typewriter headerLink"
+                className="heading2 headerLink"
                 onClick={() => {
                   setIsMenuOpen(!isMenuOpen);
                   document.body.style.overflowY = "scroll";

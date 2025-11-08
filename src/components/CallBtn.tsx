@@ -20,9 +20,31 @@ const CallBtn = forwardRef<HTMLButtonElement, CallBtnProps>(
       <button
         ref={ref}
         onClick={() => {
-          window.Calendly?.initPopupWidget({
-            url: "https://calendly.com/bouazizfarouk3/30min",
-          });
+          if (window.Calendly) {
+            window.Calendly.initPopupWidget({
+              url: "https://calendly.com/bouazizfarouk3/30min",
+            });
+            return;
+          }
+
+          if (!document.getElementById("calendly-style")) {
+            const link = document.createElement("link");
+            link.id = "calendly-style";
+            link.rel = "preload";
+            link.href =
+              "https://assets.calendly.com/assets/external/widget.css";
+            document.head.appendChild(link);
+          }
+
+          const script = document.createElement("script");
+          script.src = "https://assets.calendly.com/assets/external/widget.js";
+          script.async = true;
+          script.onload = () => {
+            window.Calendly?.initPopupWidget({
+              url: "https://calendly.com/bouazizfarouk3/30min",
+            });
+          };
+          document.body.appendChild(script);
         }}
         className={`${className} btn-primary`}
       >

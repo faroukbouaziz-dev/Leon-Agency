@@ -1,42 +1,25 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
-
 :root,
-.dark {
+:root.dark {
   --background: #0a0a0a;
   --foreground: #ededed;
-  --background-transparent: #0a0a0a3d;
-  --foreground-transparent: #ededed77;
   --primary: #10cbb8;
   --secondary: #466271;
-  --sublabel: #787878;
-  --heading-light: #e0e0e0;
-  --heading-dark: #1c1c1c;
   --neutral: #262626;
 }
-
-html.light {
+:root.light {
   --background: #f7f7f7;
   --foreground: #212121;
-  --background-transparent: #f7f7f74a;
-  --foreground-transparent: #2121214a;
   --secondary: #2b4754;
   --neutral: #d5d3d3;
 }
-
 @media (prefers-color-scheme: light) {
   :root {
     --background: #f7f7f7;
     --foreground: #212121;
-    --background-transparent: #f7f7f74a;
     --secondary: #2b4754;
   }
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
 }
 
 @theme {
@@ -63,7 +46,7 @@ html.light {
   }
   ::selection {
     background-color: var(--primary);
-    color: var(--heading-dark);
+    color: black;
   }
   button,
   a {
@@ -71,18 +54,15 @@ html.light {
   }
 }
 
-@layer utilities {
-  /* svg */
-  .fill-primary {
-    fill: var(--primary);
-  }
-  .fill-secondary {
-    fill: var(--secondary);
-  }
-  .fill-bg-color {
-    fill: var(--background);
-  }
+body {
+  background: var(--background);
+  background-size: contain;
+  color: var(--foreground);
+  font-family: var(--font-manrope);
+  overflow: hidden;
+}
 
+@layer utilities {
   /* colors & backgrounds */
   .glass-bg {
     background: hsla(0, 0%, 100%, 0.15);
@@ -91,26 +71,8 @@ html.light {
       0px 0px 5px 1px hsla(0, 0%, 0%, 0.071);
     backdrop-filter: blur(2px);
   }
-  .text-primary,
   .active {
     color: var(--primary);
-  }
-  .linear-bg {
-    background-image: linear-gradient(
-      to right,
-      var(--background),
-      var(--background-transparent),
-      #ffffff00
-    );
-  }
-  .linear-bg2 {
-    background-image: linear-gradient(
-      to right,
-      var(--background),
-      var(--background),
-      var(--background-transparent),
-      #ffffff00
-    );
   }
 
   /* placement & spacing */
@@ -120,10 +82,7 @@ html.light {
     left: 50%;
     transform: translate(-50%, -50%);
   }
-  .card-spacing {
-    @apply py-5 md:py-10 lg:py-12;
-  }
-  .card-spacing-variant {
+  .padding-responsive {
     @apply py-5 md:py-7 lg:py-10;
   }
 
@@ -132,11 +91,12 @@ html.light {
     font-family: var(--font-knockbold);
     font-size: clamp(4.375rem, 16vw, 15.625rem);
     text-transform: uppercase;
+    @apply text-nowrap text-(--primary) uppercase;
   }
   .heading2 {
     font-family: var(--font-knockbold);
     font-size: clamp(3.75rem, 13vw, 12.5rem);
-    @apply mb-12 leading-none uppercase md:mb-[4.375rem] lg:mb-[6.25rem] 2xl:mb-[7.5rem];
+    @apply mb-12 leading-none uppercase md:mb-17.5 lg:mb-25 2xl:mb-30;
   }
   .heading3 {
     font-family: var(--font-manrope);
@@ -156,25 +116,19 @@ html.light {
     @apply text-base leading-none text-nowrap md:text-lg 2xl:text-xl;
   }
   .label-active {
-    @apply !text-lg !leading-none !text-nowrap md:!text-xl lg:!text-2xl;
+    @apply text-lg! leading-none! text-nowrap! md:text-xl! lg:text-2xl!;
   }
   .sublabel {
-    @apply text-sm leading-none text-nowrap text-[var(--sublabel)] md:text-[0.9375rem] 2xl:text-base;
-  }
-  .sublabel-active {
-    @apply !text-base !leading-none !text-nowrap !text-[var(--sublabel)] lg:!text-lg;
-  }
-  .arbitrary-heading3 {
-    @apply [@media(min-width:768px)_and_(max-width:1023px)]:!text-2xl;
+    @apply text-sm leading-none text-nowrap text-(--sublabel) md:text-[0.9375rem] 2xl:text-base;
   }
   .btn-disabled {
-    @apply cursor-not-allowed bg-neutral-700;
+    @apply cursor-not-allowed bg-neutral-700 text-neutral-400;
   }
   .btn-scale-effect {
     @apply transition-transform duration-200 ease-out hover:scale-110 active:scale-100 md:transition-none md:duration-initial md:hover:scale-none md:active:scale-none;
   }
   .btn-shinyswipe-effect {
-    @apply relative overflow-hidden transition-colors duration-200 before:absolute before:-top-2.5 before:-left-10 before:-z-10 before:h-[200%] before:w-[10] before:-skew-[20deg] before:bg-[var(--foreground-transparent)] before:transition-all before:duration-600 before:content-[''] hover:before:left-[90%] md:hover:text-[var(--primary)];
+    @apply relative overflow-hidden transition-colors duration-200 before:absolute before:-top-2.5 before:-left-10 before:-z-10 before:h-[200%] before:w-[10] before:-skew-20 before:bg-neutral-400 before:transition-all before:duration-600 before:content-[''] hover:before:left-[90%] md:hover:text-(--primary);
   }
   .anim-typewriter {
     display: inline-block;
@@ -186,39 +140,24 @@ html.light {
 
 @layer components {
   .section {
-    @apply xs:px-4 mx-auto mt-[4.6875rem] max-w-[120rem] px-2.5 md:mt-[6rem] lg:mt-[7rem] xl:mt-[8rem] xl:px-5 2xl:mt-[9.375rem];
+    @apply xs:px-4 mx-auto mt-18.75 max-w-480 px-2.5 md:mt-24 lg:mt-28 xl:mt-32 xl:px-5 2xl:mt-37.5;
   }
   .header {
-    @apply fixed top-0 right-[10px] left-[10px] z-10 !my-2.5 flex items-center justify-between rounded-4xl px-4 py-2 md:!bg-transparent md:!shadow-none md:!backdrop-blur-none;
+    @apply fixed top-0 right-2.5 left-2.5 z-10 my-2.5! flex items-center justify-between rounded-4xl px-4 py-2 md:bg-transparent! md:shadow-none! md:backdrop-blur-none!;
   }
   .link {
     @apply block px-2.5 py-2.5 text-sm font-semibold duration-150 hover:scale-110 xl:text-base;
   }
   .btn-primary {
-    @apply flex gap-2 rounded-3xl bg-[var(--primary)] stroke-[var(--foreground)] px-5 py-2.5 font-bold text-nowrap text-[var(--foreground)] shadow-[inset_0_0_0_2px_var(--foreground)] transition-colors duration-300 hover:bg-transparent;
+    @apply flex gap-2 rounded-3xl bg-(--primary) stroke-(--foreground) px-5 py-2.5 font-bold text-nowrap text-(--foreground) shadow-[inset_0_0_0_2px_var(--foreground)] transition-colors duration-300 hover:bg-transparent;
   }
   .btn-secondary {
     @apply flex gap-1.5 rounded-3xl px-5 py-2.5;
   }
-  .brand {
-    fill: var(--secondary);
-    @apply max-h-6 shrink-0 lg:max-h-8;
-  }
-  .portfolio-img {
-    @apply xs:h-48 h-33 w-9/12 rounded-xl sm:h-65 md:h-52 md:w-1/2 lg:h-auto;
-  }
   .input {
-    @apply block h-12 w-full border-b-2 border-[var(--foreground)] px-2 focus:border-[var(--primary)] focus:outline-0;
+    @apply block h-12 w-full border-b-2 border-(--foreground) px-2 focus:border-(--primary) focus:outline-0;
   }
   .footer-contact {
-    @apply mb-4 flex flex-col items-center lg:mb-4 lg:!flex-row lg:gap-2;
+    @apply mb-4 flex flex-col items-center lg:mb-4 lg:flex-row! lg:gap-2;
   }
-}
-
-body {
-  background: var(--background);
-  background-size: contain;
-  color: var(--foreground);
-  font-family: var(--font-manrope);
-  overflow: hidden;
 }

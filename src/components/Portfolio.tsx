@@ -1,23 +1,39 @@
 "use client";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Pagination, Autoplay } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/effect-coverflow";
-import "swiper/css/pagination";
+import { portfolioData } from "@/data/data";
 import Uixux from "@/assets/svg/Icons/uiux.svg";
 import Apps from "@/assets/svg/Icons/apps.svg";
 import Graphic from "@/assets/svg/Icons/graphic.svg";
-import Image from "next/image";
+import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
-import { portfolioData } from "@/data/data";
+
+const PortfolioSlider = dynamic(() => import("@/components/PortfolioSlider"), {
+  ssr: false,
+});
 
 const Portfolio = () => {
-  const [isMobile, setIsMobile] = useState<boolean | null>(null);
+  const [shouldRender, setShouldRender] = useState(false);
   const [currFilter, setCurrFilter] = useState(portfolioData.apps);
+  const [isSmallScreen, setIsSmallScreen] = useState<boolean | null>(null);
 
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setShouldRender(true);
+          obs.disconnect();
+        }
+      });
+    });
+
+    obs.observe(document.querySelector("#portfolio")!);
+    obs.observe(document.querySelector("#services")!);
+    obs.observe(document.querySelector("#testimonials")!);
+    return () => obs.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => setIsSmallScreen(window.innerWidth <= 768);
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -33,7 +49,7 @@ const Portfolio = () => {
     const index = Number(activeBtn.value);
     setCurrFilter(categories[index]);
 
-    const filterBtns = Array.from(activeBtn.parentElement?.children ?? []);
+    const filterBtns = Array.from(activeBtn.parentElement!.children!);
     filterBtns?.forEach((btn) => {
       btn.classList.remove("active");
     });
@@ -41,7 +57,7 @@ const Portfolio = () => {
   };
 
   return (
-    <section className="section !px-0" id="portfolio">
+    <section className="section px-0!" id="portfolio">
       <h2 className="heading2 anim-typewriter xs:px-4 px-2.5 xl:px-5">
         Our work
       </h2>
@@ -57,7 +73,7 @@ const Portfolio = () => {
         <button
           onClick={handleFilter}
           value={1}
-          className="btn-shinyswipe-effect btn-secondary glass-bg active fill-[var(--primary)] before:!block"
+          className="btn-shinyswipe-effect btn-secondary glass-bg active fill-(--primary) before:block!"
         >
           <Apps />
           Apps
@@ -71,43 +87,8 @@ const Portfolio = () => {
           Graphic
         </button>
       </div>
-      <div className={isMobile ? "px-5" : ""}>
-        <Swiper
-          className="mb-8 lg:mb-14"
-          effect="coverflow"
-          grabCursor
-          centeredSlides
-          autoplay={{
-            delay: 5000,
-            disableOnInteraction: false,
-          }}
-          speed={1200}
-          coverflowEffect={{
-            rotate: 50,
-            stretch: 50,
-            depth: 200,
-          }}
-          pagination={{ clickable: true }}
-          modules={[EffectCoverflow, Pagination, Autoplay]}
-          breakpoints={{
-            0: {
-              slidesPerView: 1,
-            },
-            768: {
-              slidesPerView: 2,
-            },
-          }}
-        >
-          {currFilter.map((img, i) => (
-            <SwiperSlide key={i}>
-              <Image
-                src={img}
-                alt={`portfolio image ${i + 1}`}
-                className="h-[250px] w-full rounded-2xl object-cover lg:h-[400px]"
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+      <div className={isSmallScreen ? "px-5" : ""}>
+        {shouldRender && <PortfolioSlider currFilter={currFilter} />}
       </div>
     </section>
   );

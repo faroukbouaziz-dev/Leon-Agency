@@ -16,7 +16,10 @@ const Logos = () => {
         gradientColor="var(--background)"
       >
         {Object.entries(Brands).map(([name, Icon]) => (
-          <Icon key={name} className="brand mx-5" />
+          <Icon
+            key={name}
+            className="mx-5 max-h-6 shrink-0 fill-[var(--secondary)] lg:max-h-8"
+          />
         ))}
       </Marquee>
     </section>

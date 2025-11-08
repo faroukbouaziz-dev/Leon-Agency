@@ -116,14 +116,12 @@ const Contact = () => {
       <h2 className="heading2 anim-typewriter">Let&apos;s talk</h2>
       <div className="xs:gap-25 flex flex-col items-center justify-around gap-15 md:flex-row md:items-start md:gap-0">
         <div className="w-full max-w-lg md:w-[40%]">
-          <div className="card-spacing-variant flex items-center justify-between border-b-2 !pt-0">
-            <h3 className="heading3 arbitrary-heading3">Live Meeting</h3>
+          <div className="padding-responsive flex items-center justify-between border-b-2 !pt-0">
+            <h3 className="heading3">Live Meeting</h3>
             <CallBtn className="flex items-center gap-1" />
           </div>
-          <div className="card-spacing-variant border-b-2">
-            <h3 className="heading3 arbitrary-heading3 mb-3 lg:mb-6">
-              Get in Touch
-            </h3>
+          <div className="padding-responsive border-b-2">
+            <h3 className="heading3 mb-3 lg:mb-6">Get in Touch</h3>
             <ul className="pl-3">
               <li className="mb-1.5 flex items-center gap-2 lg:mb-4">
                 <MdOutlineEmail size={32} />
@@ -139,8 +137,8 @@ const Contact = () => {
               </li>
             </ul>
           </div>
-          <div className="card-spacing-variant flex items-center justify-between border-b-2">
-            <h3 className="heading3 arbitrary-heading3">Social links</h3>
+          <div className="padding-responsive flex items-center justify-between border-b-2">
+            <h3 className="heading3">Social links</h3>
             <ul className="flex items-center gap-2">
               <li className="duration-200 hover:scale-105">
                 <a href="https://github.com/faroukbouaziz-dev" target="_blank">

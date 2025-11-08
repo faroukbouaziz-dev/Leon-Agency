@@ -48,7 +48,7 @@ const ChatBot = () => {
   const responseGen = async (msg: string) => {
     chatBox.current?.insertAdjacentHTML(
       "beforeend",
-      `<div class="loading m-3 flex max-w-[60%] flex-col gap-3 rounded-2xl rounded-bl-none bg-[var(--neutral)] p-4">
+      `<div class="loading m-3 flex max-w-[60%] flex-col gap-3 rounded-2xl rounded-bl-none bg-(--neutral) p-4">
         <div class="h-2 w-full animate-pulse bg-neutral-500"></div>
         <div class="h-2 w-full animate-pulse bg-neutral-500"></div>
         <div class="h-2 w-1/2 animate-pulse bg-neutral-500"></div>
@@ -114,22 +114,35 @@ const ChatBot = () => {
         onClick={() => setIsChatOpen(true)}
         className="mr-5 mb-5 w-1/5 max-w-22 duration-200 hover:scale-105"
       >
-        <Image src={BootImg} alt="boot" />
+        <Image
+          src={BootImg}
+          alt="ChatBot image"
+          width={88}
+          height={88}
+          sizes="(max-width: 400px) 64px, 88px"
+          className="h-auto w-auto"
+          priority
+        />
       </button>
       <div
-        className={`fixed !inset-0 z-50 flex h-svh flex-col items-center bg-[var(--background)] shadow-[0_1px_15px_var(--foreground-transparent)] md:!inset-[initial] md:!right-5 md:!bottom-5 md:h-[550px] md:w-[350px] md:max-w-[350px] md:rounded-2xl ${
+        className={`fixed inset-0! z-50 flex h-svh flex-col items-center bg-(--background) shadow-xs shadow-neutral-500 md:inset-[initial]! md:right-5! md:bottom-5! md:h-[550px] md:w-[350px] md:max-w-[350px] md:rounded-2xl ${
           isChatOpen ? "block" : "hidden"
         }`}
       >
-        <div className="flex w-[95%] items-center justify-between border-b-1 border-b-neutral-600 py-3 md:px-2 md:py-4">
+        <div className="flex w-[95%] items-center justify-between border-b border-b-neutral-600 py-3 md:px-2 md:py-4">
           <div className="flex items-center gap-2">
-            <Image src={BootImg} alt="boot" className="w-13" />
-            <span className="font-medium text-[var(--foreground)]">
-              Leon Bot
-            </span>
+            <Image
+              src={BootImg}
+              alt="ChatBot image"
+              width={52}
+              height={52}
+              loading="lazy"
+              className="h-auto w-auto"
+            />
+            <span className="font-medium text-(--foreground)">Leon Bot</span>
           </div>
           <button onClick={() => setIsChatOpen(false)}>
-            <IoCloseOutline size={32} className="text-[var(--foreground)]" />
+            <IoCloseOutline size={32} className="text-(--foreground)" />
           </button>
         </div>
         <div ref={chatBox} className="h-full w-[95%] flex-1 overflow-y-scroll">
@@ -140,19 +153,19 @@ const ChatBot = () => {
             >
               <button
                 onClick={handleMsg}
-                className="rounded-lg rounded-br-none bg-[var(--primary)] p-2"
+                className="rounded-lg rounded-br-none bg-(--primary) p-2"
               >
                 What services do you offer?
               </button>
               <button
                 onClick={handleMsg}
-                className="rounded-lg rounded-br-none bg-[var(--primary)] p-2"
+                className="rounded-lg rounded-br-none bg-(--primary) p-2"
               >
                 Can I get a free consultation?
               </button>
               <button
                 onClick={handleMsg}
-                className="rounded-lg rounded-br-none bg-[var(--primary)] p-2"
+                className="rounded-lg rounded-br-none bg-(--primary) p-2"
               >
                 What apps do you build?
               </button>
@@ -161,7 +174,7 @@ const ChatBot = () => {
         </div>
         <form
           onSubmit={handleMsg}
-          className="mb-5 flex w-[95%] items-center justify-self-center rounded-full bg-[var(--neutral)] pr-1 pl-3 text-[var(--foreground)] shadow-[0_0.2px_1px_var(--foreground)] md:mb-3"
+          className="mb-5 flex w-[95%] items-center justify-self-center rounded-full bg-(--neutral) pr-1 pl-3 text-(--foreground) shadow-[0_0.2px_1px_var(--foreground)] md:mb-3"
         >
           <input
             autoSave="false"
@@ -174,9 +187,9 @@ const ChatBot = () => {
           <button
             disabled={!inputHasValue}
             type="submit"
-            className={`${inputHasValue ? "" : "btn-disabled"} rounded-full bg-[var(--primary)] p-2.5`}
+            className={`${inputHasValue ? "" : "btn-disabled"} rounded-full bg-(--primary) p-2.5`}
           >
-            <BsSend size={20} className="!m-0 ml-2 text-white" />
+            <BsSend size={20} className="m-0! ml-2 text-white" />
           </button>
         </form>
       </div>

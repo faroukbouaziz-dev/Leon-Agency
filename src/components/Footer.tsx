@@ -32,7 +32,7 @@ const Footer = () => {
               <a href="#contact">Contact</a>
             </li>
           </ul>
-          <div className="mx-5 h-60 w-0.5 !bg-[var(--background)] md:h-55 lg:mx-10" />
+          <div className="mx-5 h-60 w-0.5 !bg-(--background) md:h-55 lg:mx-10" />
           <div className="flex max-w-[45%] flex-col items-center justify-center">
             <ul>
               <li className="footer-contact">
