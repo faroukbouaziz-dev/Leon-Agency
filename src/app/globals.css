@@ -149,13 +149,13 @@ body {
     @apply block px-2.5 py-2.5 text-sm font-semibold duration-150 hover:scale-110 xl:text-base;
   }
   .btn-primary {
-    @apply flex gap-2 rounded-3xl bg-(--primary) stroke-(--foreground) px-5 py-2.5 font-bold text-nowrap text-(--foreground) shadow-[inset_0_0_0_2px_var(--foreground)] transition-colors duration-300 hover:bg-transparent;
+    @apply flex gap-2 rounded-3xl border-2 bg-(--primary) stroke-black px-5 py-2.5 font-bold text-nowrap text-black transition-colors duration-300 hover:bg-[#10cbb8d2];
   }
   .btn-secondary {
     @apply flex gap-1.5 rounded-3xl px-5 py-2.5;
   }
   .input {
-    @apply block h-12 w-full border-b-2 border-(--foreground) px-2 focus:border-(--primary) focus:outline-0;
+    @apply block h-12 w-full border-b-2 border-(--foreground) px-2 focus:outline-0;
   }
   .footer-contact {
     @apply mb-4 flex flex-col items-center lg:mb-4 lg:flex-row! lg:gap-2;

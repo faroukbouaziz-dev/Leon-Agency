@@ -29,7 +29,7 @@ const ServicesCard = ({
         <div className="2xs:h-72 xs:h-80 grid h-[210px] w-full grid-cols-2 grid-rows-2 gap-2 sm:h-[300px] sm:w-1/2 lg:h-[400px] lg:gap-4 xl:h-[480px]">
           <Image
             src={service.images.short[0]}
-            alt={service.title + " preview 1"}
+            alt={service.title + " preview image 1"}
             className="h-full w-full rounded-xl object-cover"
             loading="lazy"
             sizes="(max-width: 768px) 100vw, 50vw"
@@ -37,7 +37,7 @@ const ServicesCard = ({
 
           <Image
             src={service.images.short[1]}
-            alt={service.title + " preview 2"}
+            alt={service.title + " preview image 2"}
             className="h-full w-full rounded-xl object-cover"
             loading="lazy"
             sizes="(max-width: 768px) 100vw, 50vw"
@@ -45,7 +45,7 @@ const ServicesCard = ({
 
           <Image
             src={service.images.long}
-            alt={service.title + " full view"}
+            alt={service.title + " preview image 3"}
             className="col-span-2 h-full w-full rounded-xl object-cover"
             loading="lazy"
             sizes="(max-width: 768px) 100vw, 50vw"

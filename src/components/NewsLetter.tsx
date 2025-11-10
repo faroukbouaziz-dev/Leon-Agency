@@ -40,14 +40,16 @@ const NewsLetter = () => {
         name="email"
         id="newsletter"
         placeholder="Email"
-        className="input mt-3 !border-[var(--background)]"
+        className="input mt-3 border-(--forground)!"
       />
       <button
         type="submit"
         disabled={!submitable}
+        aria-disabled={!submitable}
+        aria-label="Subscribe to newsletter"
         className={`btn-primary mt-3 ml-auto ${!submitable ? "btn-disabled" : ""}`}
       >
-        <Newsletter className="h-6 w-6" />
+        <Newsletter className="h-6 w-6" aria-hidden="true" />
         <span>Subcribe</span>
       </button>
     </form>

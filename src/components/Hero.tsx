@@ -15,9 +15,18 @@ const Hero = () => {
       </div>
       <div className="parent-center w-[60%] max-w-[500px] min-w-[242px] [@media(max-height:520px)]:top-[40%]!">
         <div className="relative">
-          <Lion className="lion w-ful h-auto fill-(--secondary)" />
-          <RightFang className="rightFang absolute top-[39%] left-[38%] z-10 w-[20%] fill-(--background)" />
-          <LeftFang className="leftFang absolute top-[39%] left-[58.2%] z-10 w-[20%] fill-(--background)" />
+          <Lion
+            className="lion w-ful h-auto fill-(--secondary)"
+            aria-hidden="true"
+          />
+          <RightFang
+            className="rightFang absolute top-[39%] left-[38%] z-10 w-[20%] fill-(--background)"
+            aria-hidden="true"
+          />
+          <LeftFang
+            className="leftFang absolute top-[39%] left-[58.2%] z-10 w-[20%] fill-(--background)"
+            aria-hidden="true"
+          />
 
           <div className="parent-center hxl:top-[56%]! h2xl:top-[60%]! top-[52.5%]! md:top-[53%]! lg:top-[54%]! xl:top-[57%]!">
             <h1 className="heading1 [word-spacing:-10px]">Leon Agency</h1>

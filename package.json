@@ -7,7 +7,8 @@
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "eslint",
-    "gen:icons": "node scripts/generate-icons.js"
+    "gen:icons": "node scripts/generate-icons.js",
+    "analyze": "cross-env ANALYZE=true NEXT_TURBOPACK=0 next build"
   },
   "dependencies": {
     "@google/genai": "^1.23.0",
@@ -27,12 +28,14 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@next/bundle-analyzer": "^16.0.1",
     "@svgr/webpack": "^8.1.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "critters": "^0.0.23",
+    "cross-env": "^10.1.0",
     "eslint": "^9",
     "eslint-config-next": "15.5.3",
     "prettier": "^3.6.2",

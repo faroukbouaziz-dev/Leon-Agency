@@ -5,6 +5,7 @@ import { IoCloseOutline, IoMenu } from "react-icons/io5";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import CallBtn from "./CallBtn";
+import Link from "next/link";
 
 const Header = () => {
   const [isLight, setIsLight] = useState<boolean | null>(null);
@@ -73,19 +74,22 @@ const Header = () => {
   return (
     <>
       <header className="header glass-bg section">
-        <a href="#">
+        <Link href="/" aria-label="Agency homepage">
           <Image
             src="/icon.svg"
-            alt="Agency logo image"
+            alt="Agency logo"
             width={32}
             height={32}
-            className="fill-(--primary) md:w-14!"
+            className="md:w-14!"
             priority
             fetchPriority="high"
           />
-        </a>
+        </Link>
 
-        <nav className="glass-bg absolute left-1/2 hidden -translate-x-1/2 rounded-4xl px-3 py-[0.3rem] md:block">
+        <nav
+          className="glass-bg absolute left-1/2 hidden -translate-x-1/2 rounded-4xl px-3 py-[0.3rem] md:block"
+          aria-label="Navigation links"
+        >
           <ul className="flex uppercase">
             {[
               "home",
@@ -96,9 +100,9 @@ const Header = () => {
               "contact",
             ].map((link) => (
               <li key={`desk-${link}`}>
-                <a href={`#${link}`} className="link headerLink">
+                <Link href={`#${link}`} className="link headerLink">
                   {link}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -108,11 +112,14 @@ const Header = () => {
           <button
             onClick={handleThemeChange}
             className="btn-shinyswipe-effect btn-scale-effect flex items-center gap-1 before:hidden md:rounded-full md:bg-white/15 md:p-3 md:shadow-[inset_0px_0px_3px_1px_#fff,0px_0px_5px_1px_hsla(0,0%,0%,0.071)] md:backdrop-blur-[2px] md:before:block"
+            aria-label={isLight ? "Activate dark mode" : "Activate light mode"}
+            title={isLight ? "Activate dark mode" : "Activate light mode"}
+            type="button"
           >
             {isLight ? (
-              <FiMoon size={24} />
+              <FiMoon size={24} aria-hidden="true" />
             ) : isLight === false ? (
-              <FiSun size={24} />
+              <FiSun size={24} aria-hidden="true" />
             ) : (
               ""
             )}
@@ -126,13 +133,21 @@ const Header = () => {
               document.body.style.overflowY = "hidden";
             }}
             className="btn-scale-effect md:hidden"
+            title="Open menu"
+            aria-label="Open menu"
+            aria-expanded={isMenuOpen}
+            aria-controls="menu-screen"
+            type="button"
           >
-            <IoMenu size={24} />
+            <IoMenu size={24} aria-hidden="true" />
           </button>
           <CallBtn className="hidden items-center gap-1 xl:flex" />
         </div>
       </header>
       <div
+        id="menu-screen"
+        aria-modal="true"
+        aria-hidden={!isMenuOpen}
         className={`fixed inset-0 z-50 h-svh bg-(--background) pt-6 ${
           isMenuOpen ? "block opacity-100" : "hidden opacity-0"
         }`}
@@ -143,8 +158,12 @@ const Header = () => {
             setIsMenuOpen(false);
             document.body.style.overflowY = "scroll";
           }}
+          aria-label="close menu"
+          aria-pressed={!isMenuOpen}
+          title="close menu"
+          type="button"
         >
-          <IoCloseOutline size={32} />
+          <IoCloseOutline size={32} aria-hidden="true" />
         </button>
         <ul className="flex h-full flex-col items-center justify-center gap-4">
           {[
@@ -156,7 +175,7 @@ const Header = () => {
             "contact",
           ].map((link) => (
             <li key={link}>
-              <a
+              <Link
                 href={`#${link}`}
                 className="heading2 headerLink"
                 onClick={() => {
@@ -165,7 +184,7 @@ const Header = () => {
                 }}
               >
                 {link}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

@@ -18,6 +18,7 @@ const CallBtn = forwardRef<HTMLButtonElement, CallBtnProps>(
   ({ className }, ref) => {
     return (
       <button
+        type="button"
         ref={ref}
         onClick={() => {
           if (window.Calendly) {
@@ -48,7 +49,7 @@ const CallBtn = forwardRef<HTMLButtonElement, CallBtnProps>(
         }}
         className={`${className} btn-primary`}
       >
-        <Callicon className="h-6 w-6" />
+        <Callicon className="h-6 w-6" aria-hidden="true" />
         <span>Book a call</span>
       </button>
     );

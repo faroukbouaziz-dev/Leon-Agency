@@ -66,24 +66,30 @@ const Portfolio = () => {
           onClick={handleFilter}
           value={0}
           className="btn-shinyswipe-effect btn-secondary glass-bg"
+          aria-label="Show UIUX design portfolio pictures"
+          title="Show UIUX design portfolio pictures"
         >
-          <Uixux />
+          <Uixux aria-hidden="true" />
           UI/UX
         </button>
         <button
           onClick={handleFilter}
           value={1}
           className="btn-shinyswipe-effect btn-secondary glass-bg active fill-(--primary) before:block!"
+          aria-label="Show App development portfolio pictures"
+          title="Show App developmentportfolio pictures"
         >
-          <Apps />
+          <Apps aria-hidden="true" />
           Apps
         </button>
         <button
           onClick={handleFilter}
           value={2}
           className="btn-shinyswipe-effect btn-secondary glass-bg"
+          aria-label="Show graphic design portfolio pictures"
+          title="Show graphic design portfolio pictures"
         >
-          <Graphic />
+          <Graphic aria-hidden="true" />
           Graphic
         </button>
       </div>

@@ -38,11 +38,11 @@ const ChatBot = () => {
           setIsUserGreeted(true);
         });
       }
-      if (isSmallScreen) bodyClss.add("overflow-hidden");
+      if (isSmallScreen) bodyClss.add("overflow-hidden!");
       return;
     }
 
-    if (isSmallScreen) bodyClss.remove("overflow-hidden");
+    if (isSmallScreen) bodyClss.remove("overflow-hidden!");
   }, [isChatOpen, isUserGreeted]);
 
   const responseGen = async (msg: string) => {
@@ -113,18 +113,27 @@ const ChatBot = () => {
         ref={chatBtn}
         onClick={() => setIsChatOpen(true)}
         className="mr-5 mb-5 w-1/5 max-w-22 duration-200 hover:scale-105"
+        aria-label="Open leon bot chat"
+        title="Open leon bot chat"
+        aria-expanded={isChatOpen}
+        aria-controls="chat-panel"
       >
         <Image
           src={BootImg}
-          alt="ChatBot image"
+          alt=""
           width={88}
           height={88}
           sizes="(max-width: 400px) 64px, 88px"
           className="h-auto w-auto"
           priority
+          aria-hidden="true"
         />
       </button>
       <div
+        id="chat-panel"
+        role="dialog"
+        aria-modal="true"
+        hidden={!isChatOpen}
         className={`fixed inset-0! z-50 flex h-svh flex-col items-center bg-(--background) shadow-xs shadow-neutral-500 md:inset-[initial]! md:right-5! md:bottom-5! md:h-[550px] md:w-[350px] md:max-w-[350px] md:rounded-2xl ${
           isChatOpen ? "block" : "hidden"
         }`}
@@ -141,11 +150,26 @@ const ChatBot = () => {
             />
             <span className="font-medium text-(--foreground)">Leon Bot</span>
           </div>
-          <button onClick={() => setIsChatOpen(false)}>
-            <IoCloseOutline size={32} className="text-(--foreground)" />
+          <button
+            onClick={() => setIsChatOpen(false)}
+            aria-label="Close leon bot chat"
+            title="Close leon bot chat"
+            aria-pressed={!isChatOpen}
+          >
+            <IoCloseOutline
+              size={32}
+              className="text-(--foreground)"
+              aria-hidden="true"
+            />
           </button>
         </div>
-        <div ref={chatBox} className="h-full w-[95%] flex-1 overflow-y-scroll">
+        <div
+          ref={chatBox}
+          className="h-full w-[95%] flex-1 overflow-y-scroll"
+          id="chat-live"
+          aria-live="polite"
+          aria-atomic="true"
+        >
           {isUserGreeted && (
             <div
               ref={suggestedMsgs}
@@ -181,6 +205,7 @@ const ChatBot = () => {
             type="text"
             name="message"
             placeholder="Message"
+            aria-label="Type your message"
             className="h-12 w-full focus:outline-0"
             onChange={hadndleInputChange}
           />
@@ -188,8 +213,13 @@ const ChatBot = () => {
             disabled={!inputHasValue}
             type="submit"
             className={`${inputHasValue ? "" : "btn-disabled"} rounded-full bg-(--primary) p-2.5`}
+            aria-label="Send the written message"
           >
-            <BsSend size={20} className="m-0! ml-2 text-white" />
+            <BsSend
+              size={20}
+              className="m-0! ml-2 text-white"
+              aria-label="Type your message"
+            />
           </button>
         </form>
       </div>

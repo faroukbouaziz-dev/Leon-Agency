@@ -116,7 +116,7 @@ const Contact = () => {
       <h2 className="heading2 anim-typewriter">Let&apos;s talk</h2>
       <div className="xs:gap-25 flex flex-col items-center justify-around gap-15 md:flex-row md:items-start md:gap-0">
         <div className="w-full max-w-lg md:w-[40%]">
-          <div className="padding-responsive flex items-center justify-between border-b-2 !pt-0">
+          <div className="padding-responsive flex items-center justify-between border-b-2 pt-0!">
             <h3 className="heading3">Live Meeting</h3>
             <CallBtn className="flex items-center gap-1" />
           </div>
@@ -124,15 +124,15 @@ const Contact = () => {
             <h3 className="heading3 mb-3 lg:mb-6">Get in Touch</h3>
             <ul className="pl-3">
               <li className="mb-1.5 flex items-center gap-2 lg:mb-4">
-                <MdOutlineEmail size={32} />
+                <MdOutlineEmail size={32} aria-hidden="true" />
                 <p className="label-active">leon.info@agency</p>
               </li>
               <li className="mb-1.5 flex items-center gap-2 lg:mb-4">
-                <IoLocationOutline size={32} />
+                <IoLocationOutline size={32} aria-hidden="true" />
                 <p className="label-active">Algeria, Msila</p>
               </li>
               <li className="mb-1.5 flex items-center gap-2 lg:mb-4">
-                <FiSmartphone size={32} />
+                <FiSmartphone size={32} aria-hidden="true" />
                 <p className="label-active">+213674155893</p>
               </li>
             </ul>
@@ -141,29 +141,43 @@ const Contact = () => {
             <h3 className="heading3">Social links</h3>
             <ul className="flex items-center gap-2">
               <li className="duration-200 hover:scale-105">
-                <a href="https://github.com/faroukbouaziz-dev" target="_blank">
-                  <FiGithub size={28} />
+                <a
+                  href="https://github.com/faroukbouaziz-dev"
+                  aria-label="Agency github"
+                  title="Agency github"
+                  target="_blank"
+                >
+                  <FiGithub size={28} aria-hidden="true" />
                 </a>
               </li>
               <li className="duration-200 hover:scale-105">
-                <a href="https://x.com/faroukbou_dev" target="_blank">
-                  <FaXTwitter size={28} />
+                <a
+                  href="https://x.com/faroukbou_dev"
+                  aria-label="Agency x twitter"
+                  title="Agency x twitter"
+                  target="_blank"
+                >
+                  <FaXTwitter size={28} aria-hidden="true" />
                 </a>
               </li>
               <li className="duration-200 hover:scale-105">
                 <a
                   href="https://www.instagram.com/faroukbouaziz.dev"
+                  aria-label="Agency instagram"
+                  title="Agency instagram"
                   target="_blank"
                 >
-                  <FaInstagram size={28} />
+                  <FaInstagram size={28} aria-hidden="true" />
                 </a>
               </li>
               <li className="duration-200 hover:scale-105">
                 <a
                   href="https://www.tiktok.com/@faroukbouaziz.dev"
+                  aria-label="Agency tiktok"
+                  title="Agency tiktok"
                   target="_blank"
                 >
-                  <FaTiktok size={28} />
+                  <FaTiktok size={28} aria-hidden="true" />
                 </a>
               </li>
             </ul>
@@ -176,6 +190,8 @@ const Contact = () => {
               type="button"
               onClick={handleFeedback}
               className="mb-3 flex items-center gap-1 justify-self-end"
+              aria-pressed={feedback}
+              aria-label="Send feedback"
             >
               <span className="label-active">Feedback</span>
               <div className="relative h-5 w-12 rounded-2xl bg-gray-300 transition-all duration-300">
@@ -198,6 +214,7 @@ const Contact = () => {
               className="input"
               placeholder="Name"
               name="name"
+              aria-label="Your name input"
             />
             <input
               required={!feedback}
@@ -207,6 +224,7 @@ const Contact = () => {
               className={`input ${feedback ? "hidden" : ""}`}
               placeholder="Email"
               name="email"
+              aria-label="Your Email input"
             />
             <Select
               name="industry"
@@ -233,21 +251,29 @@ const Contact = () => {
                   ...base,
                   color: "var(--foreground)",
                 }),
+                placeholder: (base) => ({
+                  ...base,
+                  color: "var(--foreground)",
+                  opacity: 0.7,
+                }),
               }}
               isClearable
               placeholder="industry.."
               options={industryOps}
-              className={`input !px-0 ${feedback ? "hidden" : ""}`}
+              className={`input px-0! ${feedback ? "hidden" : ""}`}
+              aria-label="Your industry Select input"
             ></Select>
             <input
               type="text"
               className={`input ${feedback ? "hidden" : ""}`}
               placeholder="Company name"
               name="company"
+              aria-label="Your Company name input"
             />
             <Select
               name="service"
               instanceId="service-select"
+              isMulti
               styles={{
                 control: (base) => ({
                   ...base,
@@ -270,11 +296,17 @@ const Contact = () => {
                   ...base,
                   color: "var(--foreground)",
                 }),
+                placeholder: (base) => ({
+                  ...base,
+                  color: "var(--foreground)",
+                  opacity: 0.7,
+                }),
               }}
               isClearable
               placeholder="Services.."
               options={servicesOps}
-              className={`input !px-0 text-[#9097a3] ${feedback ? "hidden" : ""}`}
+              className={`input h-fit px-0! text-[#9097a3] ${feedback ? "hidden" : ""}`}
+              aria-label="Services you want select input"
             ></Select>
             <textarea
               required
@@ -283,13 +315,16 @@ const Contact = () => {
               className="input h-25 min-h-15"
               placeholder="Message"
               name="message"
+              aria-label="Your message input"
             ></textarea>
             <button
               type="submit"
               disabled={!submitable}
               className={`btn-primary mt-3 ${!submitable ? "btn-disabled" : ""}`}
+              aria-label="Submit the form"
+              aria-disabled={!submitable}
             >
-              <FiSend className="h-6 w-6" />
+              <FiSend className="h-6 w-6" aria-hidden="true" />
               <span>Submit</span>
             </button>
           </form>
