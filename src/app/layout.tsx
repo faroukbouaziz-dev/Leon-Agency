@@ -17,7 +17,21 @@ const knockbold = localFont({
 export const metadata: Metadata = {
   title: "Leon Agency",
   description:
-    "Overhauling my very first web project with a modern, minimal UI while keeping its original identity. Built with Next.js, TypeScript, and Tailwind CSS.",
+    "Leon Agency is a creative digital agency specializing in UI/UX design, app development, graphic design, and digital marketing. We help businesses grow through design and technology that drive real impact.",
+  openGraph: {
+    title: "Leon | Creative Agency",
+    description:
+      "Leon Agency is a creative digital agency specializing in UI/UX design, app development, graphic design, and digital marketing. We help businesses grow through design and technology that drive real impact.",
+    url: "https://domain.com",
+    images: [
+      {
+        url: "https://domain.com/assets/services/uiux/uiux3.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Leon | Creative Agency",
+      },
+    ],
+  },
 };
 
 export default async function RootLayout({
@@ -26,12 +40,117 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const isLight = await getThemePreference();
+  const jsonLd = {
+    "@type": "Organization",
+    name: "Leon Agency",
+    url: "https://domain.com",
+    logo: "https://domain.com/logo.png",
+    description:
+      "Leon Agency is a creative digital agency specializing in UI/UX design, app development, graphic design, and digital marketing. We help businesses grow through design and technology that drive real impact.",
+    foundingDate: "2025",
+    founders: [
+      {
+        "@type": "Person",
+        name: "Leon Agency Team",
+      },
+    ],
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Msila",
+      addressLocality: "Msila",
+      addressCountry: "DZ",
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: "+213674155893",
+      contactType: "customer service",
+      email: "leon.info@agency",
+    },
+    sameAs: [
+      "https://github.com/leonagency",
+      "https://twitter.com/leonagency",
+      "https://instagram.com/leonagency",
+      "https://tiktok.com/@leonagency",
+    ],
+    makesOffer: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "UI/UX Design",
+          description:
+            "We craft intuitive, user-friendly interfaces balancing aesthetics with functionality.",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "App Development",
+          description:
+            "We develop scalable, high-performance web and mobile apps.",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Graphic Design",
+          description:
+            "From logos to full brand identities, our visuals help brands stand out.",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Digital Marketing",
+          description:
+            "We deliver measurable growth through SEO, social media, and advertising.",
+        },
+      },
+    ],
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      reviewCount: "50",
+    },
+    review: [
+      {
+        "@type": "Review",
+        author: { "@type": "Person", name: "Johny Smith" },
+        reviewBody:
+          "Leon Agency expertly transformed our concept into a reality with their creative expertise. The outcome was beyond expectations.",
+        reviewRating: { "@type": "Rating", ratingValue: "5" },
+      },
+      {
+        "@type": "Review",
+        author: { "@type": "Person", name: "Daniel Kim" },
+        reviewBody:
+          "From idea to launch, Leon Agency guided us every step of the way. Their development team is top-notch and reliable.",
+        reviewRating: { "@type": "Rating", ratingValue: "5" },
+      },
+      {
+        "@type": "Review",
+        author: { "@type": "Person", name: "Liam O'Connor" },
+        reviewBody:
+          "Leon Agency delivered a functional app that scaled smoothly as our users grew.",
+        reviewRating: { "@type": "Rating", ratingValue: "5" },
+      },
+    ],
+  };
 
   return (
     <html
       lang="en"
       className={isLight ? "light" : isLight === false ? "dark" : ""}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className={`${manrope.variable} ${knockbold.variable} antialiased`}>
         {children}
       </body>

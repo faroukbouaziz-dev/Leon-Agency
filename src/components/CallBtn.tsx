@@ -31,7 +31,7 @@ const CallBtn = forwardRef<HTMLButtonElement, CallBtnProps>(
           if (!document.getElementById("calendly-style")) {
             const link = document.createElement("link");
             link.id = "calendly-style";
-            link.rel = "preload";
+            link.rel = "stylesheet";
             link.href =
               "https://assets.calendly.com/assets/external/widget.css";
             document.head.appendChild(link);

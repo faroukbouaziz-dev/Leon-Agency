@@ -36,7 +36,7 @@ const Testimonials = () => {
   }, []);
 
   return (
-    <section className="section !px-0" id="testimonials">
+    <section className="section px-0!" id="testimonials">
       <h2 className="heading2 anim-typewriter xs:px-4 px-2.5 xl:px-5">
         Testimonials
       </h2>

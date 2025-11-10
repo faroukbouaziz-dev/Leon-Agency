@@ -1,6 +1,6 @@
-import LeftFang from "@/assets/svg/hero/LeftFang.svg";
-import Lion from "@/assets/svg/hero/Lion.svg";
-import RightFang from "@/assets/svg/hero/RightFang.svg";
+import LeftFang from "@/assets/svg/Hero/LeftFang.svg";
+import Lion from "@/assets/svg/Hero/Lion.svg";
+import RightFang from "@/assets/svg/Hero/RightFang.svg";
 import CallBtn from "./CallBtn";
 import ChatBot from "./ChatBot";
 

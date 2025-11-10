@@ -39,7 +39,7 @@ const PortfolioSlider = () => {
     >
       {clients.map(({ id, picture, name, job, testimonial }) => (
         <SwiperSlide key={id}>
-          <div className="2xs:p-5 flex h-[300px] w-full flex-col items-start gap-7 rounded-2xl bg-[var(--neutral)] p-3 lg:h-[400px] lg:w-[700px] lg:gap-12 lg:p-5 xl:gap-7">
+          <div className="2xs:p-5 flex h-[300px] w-full flex-col items-start gap-7 rounded-2xl bg-(--neutral) p-3 lg:h-[400px] lg:w-[700px] lg:gap-12 lg:p-5 xl:gap-7">
             <div className="flex w-fit items-center gap-2 md:gap-3">
               <Image
                 src={picture}
