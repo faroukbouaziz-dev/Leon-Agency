@@ -96,7 +96,20 @@ const Animations = () => {
 
     const master = gsap.timeline();
     if (mainTl && projectsTl && clientsTl)
-      master.add(overlayTl).add(mainTl).add([projectsTl, clientsTl], "-=0.5");
+      master
+        .add(overlayTl)
+        .add(mainTl)
+        .add([projectsTl, clientsTl], "-=0.5")
+        .from(
+          "#consent-box",
+          {
+            y: 50,
+            opacity: 0,
+            duration: 0.6,
+            ease: "power3.out",
+          },
+          "+=0.5",
+        );
 
     return () => cursor.destroy();
   }, []);

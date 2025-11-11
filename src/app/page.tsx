@@ -9,11 +9,11 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import { ToastContainer } from "react-toastify";
 import Animations from "@/components/Animations";
+import CookieConsent from "@/components/CookieConsent";
 
 export default function Home() {
   return (
     <>
-      <Animations />
       <Header />
       <Hero />
       <Partners />
@@ -23,6 +23,8 @@ export default function Home() {
       <Testimonials />
       <Contact />
       <Footer />
+      <Animations />
+      <CookieConsent />
       <ToastContainer
         position="bottom-left"
         autoClose={2000}

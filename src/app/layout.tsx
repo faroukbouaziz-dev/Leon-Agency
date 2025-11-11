@@ -3,6 +3,7 @@ import { Manrope } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import { getThemePreference } from "@/lib/cookies";
+import Script from "next/script";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -145,14 +146,33 @@ export default async function RootLayout({
       lang="en"
       className={isLight ? "light" : isLight === false ? "dark" : ""}
     >
-      <head>
-        <script
+      <body className={`${manrope.variable} ${knockbold.variable} antialiased`}>
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-K8GKQ35X"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          ></iframe>
+        </noscript>
+        {children}
+        <Script
+          id="gtm-script"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K8GKQ35X');`,
+          }}
+        />
+        <Script
+          id="jsonLd"
+          strategy="afterInteractive"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-      </head>
-      <body className={`${manrope.variable} ${knockbold.variable} antialiased`}>
-        {children}
       </body>
     </html>
   );
