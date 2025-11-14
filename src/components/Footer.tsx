@@ -9,7 +9,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="relative mt-18.75 overflow-hidden bg-(--secondary) p-4 pt-4 text-(--foreground)! lg:mt-32">
+    <footer className="relative mt-18.75 overflow-hidden bg-(--secondary) p-4 pt-4 text-white! lg:mt-32">
       <div className="items-start gap-10 md:flex xl:gap-40!">
         <NewsLetter />
         <div className="2xs:justify-evenly mt-5 flex min-w-sm items-center md:items-start">
@@ -33,7 +33,7 @@ const Footer = () => {
               <Link href="#contact">Contact</Link>
             </li>
           </ul>
-          <div className="mx-5 h-60 w-0.5 bg-(--background)! md:h-55 lg:mx-10" />
+          <div className="mx-5 h-60 w-0.5 bg-white md:h-55 lg:mx-10" />
           <div className="flex max-w-[45%] flex-col items-center justify-center">
             <ul>
               <li className="footer-contact">
