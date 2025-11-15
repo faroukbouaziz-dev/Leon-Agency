@@ -3,11 +3,19 @@
 import { followingDotCursor } from "cursor-effects";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, useLayoutEffect } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Animations = () => {
+  const [isSmallScreen, setIsSmallScreen] = useState<boolean | null>(null);
+  useEffect(() => {
+    const handleResize = () => setIsSmallScreen(window.innerWidth <= 768);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   useLayoutEffect(() => {
     const overlay = document.querySelector(".overlay");
     const lion = document.querySelector(".lion");
@@ -21,9 +29,11 @@ const Animations = () => {
     if (!overlay || !lion || !rightFang || !leftFang || !heading || !cta)
       return;
 
-    const cursor = followingDotCursor({
-      color: "#10cbb8",
-    });
+    const cursor = !isSmallScreen
+      ? followingDotCursor({
+          color: "#10cbb8",
+        })
+      : null;
 
     const mainTl = gsap.timeline({
       defaults: { ease: "power3.out", duration: 1 },
@@ -111,8 +121,8 @@ const Animations = () => {
           "+=0.5",
         );
 
-    return () => cursor.destroy();
-  }, []);
+    return () => cursor?.destroy();
+  }, [isSmallScreen]);
 
   useLayoutEffect(() => {
     const texts = document.querySelectorAll(".text-animation");
@@ -154,7 +164,7 @@ const Animations = () => {
           { width: 0 },
           {
             width,
-            duration: count * 0.2,
+            duration: count * 0.1,
             ease: `steps(${count})`,
           },
         );

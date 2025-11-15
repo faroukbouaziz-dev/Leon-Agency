@@ -8,28 +8,38 @@ import { aiChat } from "@/actions/chat";
 import { toast } from "react-toastify";
 import VanillaTilt from "vanilla-tilt";
 
+type TiltedElement = HTMLButtonElement & {
+  vanillaTilt?: {
+    destroy: () => void;
+  };
+};
+
 const ChatBot = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [inputHasValue, setInputHasValue] = useState(false);
   const [isUserGreeted, setIsUserGreeted] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState<boolean | null>(null);
 
-  const chatBtn = useRef<HTMLButtonElement | null>(null);
+  const chatBtn = useRef<TiltedElement | null>(null);
   const chatBox = useRef<HTMLDivElement | null>(null);
   const suggestedMsgs = useRef<HTMLDivElement | null>(null);
   const userId = useRef(crypto.randomUUID());
 
   useEffect(() => {
-    if (chatBtn.current)
-      VanillaTilt.init(chatBtn.current, {
+    if (!chatBtn.current) return;
+    if (isSmallScreen) {
+      chatBtn.current!.vanillaTilt?.destroy();
+    } else {
+      VanillaTilt.init(chatBtn.current!, {
         max: 40,
         speed: 400,
         reverse: true,
         "full-page-listening": true,
       });
-  }, []);
+    }
+  }, [isSmallScreen]);
 
   useEffect(() => {
-    const isSmallScreen = window.innerWidth <= 768;
     const bodyClss = document.body.classList;
 
     if (isChatOpen) {
@@ -43,7 +53,14 @@ const ChatBot = () => {
     }
 
     if (isSmallScreen) bodyClss.remove("overflow-hidden!");
-  }, [isChatOpen, isUserGreeted]);
+  }, [isChatOpen, isUserGreeted, isSmallScreen]);
+
+  useEffect(() => {
+    const handleResize = () => setIsSmallScreen(window.innerWidth <= 768);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const responseGen = async (msg: string) => {
     chatBox.current?.insertAdjacentHTML(

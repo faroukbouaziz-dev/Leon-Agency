@@ -10,7 +10,7 @@ const TestimonialsSlider = dynamic(
 
 const Testimonials = () => {
   const [shouldRender, setShouldRender] = useState(false);
-  const [isMobile, setIsMobile] = useState<boolean | null>(null);
+  const [isSmallScreen, setIsSmallScreen] = useState<boolean | null>(null);
 
   useEffect(() => {
     const obs = new IntersectionObserver((entries) => {
@@ -29,7 +29,7 @@ const Testimonials = () => {
   }, []);
 
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    const handleResize = () => setIsSmallScreen(window.innerWidth <= 768);
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -40,7 +40,7 @@ const Testimonials = () => {
       <h2 className="heading2 anim-typewriter xs:px-4 px-2.5 xl:px-5">
         Testimonials
       </h2>
-      <div className={isMobile ? "px-5" : ""}>
+      <div className={isSmallScreen ? "px-5" : ""}>
         {shouldRender && <TestimonialsSlider />}
       </div>
     </section>
