@@ -16,6 +16,16 @@ const Animations = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  useEffect(() => {
+    const cursor = !isSmallScreen
+      ? followingDotCursor({
+          color: "#10cbb8",
+        })
+      : null;
+
+    return () => cursor?.destroy();
+  }, [isSmallScreen]);
+
   useLayoutEffect(() => {
     const overlay = document.querySelector(".overlay");
     const lion = document.querySelector(".lion");
@@ -28,19 +38,6 @@ const Animations = () => {
 
     if (!overlay || !lion || !rightFang || !leftFang || !heading || !cta)
       return;
-
-    const cursor = !isSmallScreen
-      ? followingDotCursor({
-          color: "#10cbb8",
-        })
-      : null;
-
-    const mainTl = gsap.timeline({
-      defaults: { ease: "power3.out", duration: 1 },
-    });
-    mainTl
-      .from([lion, rightFang, leftFang], { opacity: 0, y: -200 })
-      .from([heading, cta], { opacity: 0, y: 150, stagger: 0.6 }, "<");
 
     const counterAnimation = (counter: HTMLElement | null, end: number) => {
       if (!counter) {
@@ -77,6 +74,13 @@ const Animations = () => {
 
       return tl;
     };
+
+    const mainTl = gsap
+      .timeline({
+        defaults: { ease: "power3.out", duration: 1 },
+      })
+      .from([lion, rightFang, leftFang], { opacity: 0, y: -200 })
+      .from([heading, cta], { opacity: 0, y: 150, stagger: 0.6 }, "<");
 
     const overlayTl = gsap
       .timeline()
@@ -120,9 +124,7 @@ const Animations = () => {
           },
           "+=0.5",
         );
-
-    return () => cursor?.destroy();
-  }, [isSmallScreen]);
+  }, []);
 
   useLayoutEffect(() => {
     const texts = document.querySelectorAll(".text-animation");
